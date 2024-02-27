@@ -1,0 +1,137 @@
+{% load static %}
+
+<script>
+    window.RS_MODULES = window.RS_MODULES || {};
+    window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+    window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+    window.RS_MODULES.defered = false;
+    window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+    window.RS_MODULES.type = 'compiled';
+</script>
+<script type="text/javascript">
+    (function () {
+        var c = document.body.className;
+        c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+        document.body.className = c;
+    })();
+</script>
+<link rel="stylesheet" id="e-animations-css"
+    href="{% static 'web/wp-content/plugins/elementor/assets/lib/animations/animations.min.css' %}" type="text/css"
+    media="all">
+<link data-minify="1" rel="stylesheet" id="rs-plugin-settings-css"
+    href="{% static 'web/wp-content/cache/min/1/wp-content/plugins/revslider/public/assets/css/rs6.css' %}"
+    type="text/css" media="all">
+<style id="rs-plugin-settings-inline-css" type="text/css">
+    #rs-demo-id {}
+</style>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/contact-form-7/includes/swv/js/index.js' %}"
+    id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+    /* <![CDATA[ */
+    var wpcf7 = { "api": { "root": "https:\/\/listeo.pro\/wp-json\/", "namespace": "contact-form-7\/v1" }, "cached": "1" };
+    /* ]]> */
+</script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/contact-form-7/includes/js/index.js' %}"
+    id="contact-form-7-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/jquery/ui/core.min.js' %}"
+    id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/jquery/ui/menu.min.js' %}"
+    id="jquery-ui-menu-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js' %}"
+    id="wp-polyfill-inert-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/dist/vendor/regenerator-runtime.min.js' %}"
+    id="regenerator-runtime-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/dist/vendor/wp-polyfill.min.js' %}"
+    id="wp-polyfill-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/dist/dom-ready.min.js' %}"
+    id="wp-dom-ready-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/dist/hooks.min.js' %}" id="wp-hooks-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/dist/i18n.min.js' %}" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+    wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+</script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/dist/a11y.min.js' %}" id="wp-a11y-js"></script>
+<script type="text/javascript" id="jquery-ui-autocomplete-js-extra">
+    /* <![CDATA[ */
+    var uiAutocompleteL10n = { "noResults": "No results found.", "oneResult": "1 result found. Use up and down arrow keys to navigate.", "manyResults": "%d results found. Use up and down arrow keys to navigate.", "itemSelected": "Item selected." };
+    /* ]]> */
+</script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/jquery/ui/autocomplete.min.js' %}"
+    id="jquery-ui-autocomplete-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/jquery/ui/mouse.min.js' %}"
+    id="jquery-ui-mouse-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-includes/js/jquery/ui/sortable.min.js' %}"
+    id="jquery-ui-sortable-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/listeo-core/assets/js/uploads.min.js' %}"
+    id="uploads-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/listeo-core/assets/js/ajax.search.min.js' %}"
+    id="ajaxsearch-js"></script>
+<script type="text/javascript"
+    src="{% static 'web/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js' %}"
+    id="jquery-blockui-js"></script>
+<script type="text/javascript" id="wc-add-to-cart-js-extra">
+    /* <![CDATA[ */
+    var wc_add_to_cart_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "https:\/\/listeo.pro\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
+    /* ]]> */
+</script>
+<script type="text/javascript"
+    src="{% static 'web/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js' %}"
+    id="wc-add-to-cart-js"></script>
+<script type="text/javascript"
+    src="{% static 'web/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js' %}"
+    id="js-cookie-js"></script>
+<script type="text/javascript" id="woocommerce-js-extra">
+    /* <![CDATA[ */
+    var woocommerce_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%" };
+    /* ]]> */
+</script>
+<script type="text/javascript"
+    src="{% static 'web/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js' %}"
+    id="woocommerce-js"></script>
+<script type="text/javascript" id="rocket-browser-checker-js-after">
+    "use strict"; var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, descriptor.key, descriptor) } } return function (Constructor, protoProps, staticProps) { return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor } }(); function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function") } var RocketBrowserCompatibilityChecker = function () { function RocketBrowserCompatibilityChecker(options) { _classCallCheck(this, RocketBrowserCompatibilityChecker), this.passiveSupported = !1, this._checkPassiveOption(this), this.options = !!this.passiveSupported && options } return _createClass(RocketBrowserCompatibilityChecker, [{ key: "_checkPassiveOption", value: function (self) { try { var options = { get passive() { return !(self.passiveSupported = !0) } }; window.addEventListener("test", null, options), window.removeEventListener("test", null, options) } catch (err) { self.passiveSupported = !1 } } }, { key: "initRequestIdleCallback", value: function () { !1 in window && (window.requestIdleCallback = function (cb) { var start = Date.now(); return setTimeout(function () { cb({ didTimeout: !1, timeRemaining: function () { return Math.max(0, 50 - (Date.now() - start)) } }) }, 1) }), !1 in window && (window.cancelIdleCallback = function (id) { return clearTimeout(id) }) } }, { key: "isDataSaverModeOn", value: function () { return "connection" in navigator && !0 === navigator.connection.saveData } }, { key: "supportsLinkPrefetch", value: function () { var elem = document.createElement("link"); return elem.relList && elem.relList.supports && elem.relList.supports("prefetch") && window.IntersectionObserver && "isIntersecting" in IntersectionObserverEntry.prototype } }, { key: "isSlowConnection", value: function () { return "connection" in navigator && "effectiveType" in navigator.connection && ("2g" === navigator.connection.effectiveType || "slow-2g" === navigator.connection.effectiveType) } }]), RocketBrowserCompatibilityChecker }();
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+    /* <![CDATA[ */
+    var RocketPreloadLinksConfig = { "excludeUris": "\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/checkout\/??(.*)|\/cart\/?|\/wc-api\/v(.*)|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/", "usesTrailingSlash": "1", "imageExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php", "fileExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm", "siteUrl": "https:\/\/listeo.pro", "onHoverDelay": "100", "rateThrottle": "3" };
+    /* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+    (function () {
+        "use strict"; var r = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) { return typeof e } : function (e) { return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e }, e = function () { function i(e, t) { for (var n = 0; n < t.length; n++) { var i = t[n]; i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(e, i.key, i) } } return function (e, t, n) { return t && i(e.prototype, t), n && i(e, n), e } }(); function i(e, t) { if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function") } var t = function () { function n(e, t) { i(this, n), this.browser = e, this.config = t, this.options = this.browser.options, this.prefetched = new Set, this.eventTime = null, this.threshold = 1111, this.numOnHover = 0 } return e(n, [{ key: "init", value: function () { !this.browser.supportsLinkPrefetch() || this.browser.isDataSaverModeOn() || this.browser.isSlowConnection() || (this.regex = { excludeUris: RegExp(this.config.excludeUris, "i"), images: RegExp(".(" + this.config.imageExt + ")$", "i"), fileExt: RegExp(".(" + this.config.fileExt + ")$", "i") }, this._initListeners(this)) } }, { key: "_initListeners", value: function (e) { -1 < this.config.onHoverDelay && document.addEventListener("mouseover", e.listener.bind(e), e.listenerOptions), document.addEventListener("mousedown", e.listener.bind(e), e.listenerOptions), document.addEventListener("touchstart", e.listener.bind(e), e.listenerOptions) } }, { key: "listener", value: function (e) { var t = e.target.closest("a"), n = this._prepareUrl(t); if (null !== n) switch (e.type) { case "mousedown": case "touchstart": this._addPrefetchLink(n); break; case "mouseover": this._earlyPrefetch(t, n, "mouseout") } } }, { key: "_earlyPrefetch", value: function (t, e, n) { var i = this, r = setTimeout(function () { if (r = null, 0 === i.numOnHover) setTimeout(function () { return i.numOnHover = 0 }, 1e3); else if (i.numOnHover > i.config.rateThrottle) return; i.numOnHover++, i._addPrefetchLink(e) }, this.config.onHoverDelay); t.addEventListener(n, function e() { t.removeEventListener(n, e, { passive: !0 }), null !== r && (clearTimeout(r), r = null) }, { passive: !0 }) } }, { key: "_addPrefetchLink", value: function (i) { return this.prefetched.add(i.href), new Promise(function (e, t) { var n = document.createElement("link"); n.rel = "prefetch", n.href = i.href, n.onload = e, n.onerror = t, document.head.appendChild(n) }).catch(function () { }) } }, { key: "_prepareUrl", value: function (e) { if (null === e || "object" !== (void 0 === e ? "undefined" : r(e)) || !1 in e || -1 === ["http:", "https:"].indexOf(e.protocol)) return null; var t = e.href.substring(0, this.config.siteUrl.length), n = this._getPathname(e.href, t), i = { original: e.href, protocol: e.protocol, origin: t, pathname: n, href: t + n }; return this._isLinkOk(i) ? i : null } }, { key: "_getPathname", value: function (e, t) { var n = t ? e.substring(this.config.siteUrl.length) : e; return n.startsWith("/") || (n = "/" + n), this._shouldAddTrailingSlash(n) ? n + "/" : n } }, { key: "_shouldAddTrailingSlash", value: function (e) { return this.config.usesTrailingSlash && !e.endsWith("/") && !this.regex.fileExt.test(e) } }, { key: "_isLinkOk", value: function (e) { return null !== e && "object" === (void 0 === e ? "undefined" : r(e)) && (!this.prefetched.has(e.href) && e.origin === this.config.siteUrl && -1 === e.href.indexOf("?") && -1 === e.href.indexOf("#") && !this.regex.excludeUris.test(e.href) && !this.regex.images.test(e.href)) } }], [{ key: "run", value: function () { "undefined" != typeof RocketPreloadLinksConfig && new n(new RocketBrowserCompatibilityChecker({ capture: !0, passive: !0 }), RocketPreloadLinksConfig).init() } }]), n }(); t.run();
+    }());
+</script>
+<script type="text/javascript"
+    src="{% static 'web/wp-content/plugins/elementor/assets/lib/flatpickr/flatpickr.min.js' %}"
+    id="flatpickr-js"></script>
+<script type="text/javascript" id="listeo-custom-js-extra">
+    /* <![CDATA[ */
+    var wordpress_date_format = { "date": "MM\/DD\/YYYY", "day": "1", "raw": "F j, Y", "time": "g:i a" };
+    var listeo = { "ajaxurl": "\/wp-admin\/admin-ajax.php", "theme_url": "https:\/\/listeo.pro\/wp-content\/themes\/listeo", "menu_back": "Back" };
+    /* ]]> */
+</script>
+<script type="text/javascript" src="{% static 'web/wp-content/themes/listeo/js/custom.js' %}"
+    id="listeo-custom-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js' %}"
+    id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/elementor/assets/js/frontend-modules.min.js' %}"
+    id="elementor-frontend-modules-js"></script>
+<script type="text/javascript"
+    src="{% static 'web/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js' %}"
+    id="elementor-waypoints-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js' %}"
+    id="swiper-js"></script>
+<script type="text/javascript"
+    src="{% static 'web/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js' %}"
+    id="share-link-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js' %}"
+    id="elementor-dialog-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+    var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close", "a11yCarouselWrapperAriaLabel": "Carousel | Horizontal scrolling: Arrow Left & Right", "a11yCarouselPrevSlideMessage": "Previous slide", "a11yCarouselNextSlideMessage": "Next slide", "a11yCarouselFirstSlideMessage": "This is the first slide", "a11yCarouselLastSlideMessage": "This is the last slide", "a11yCarouselPaginationBulletMessage": "Go to slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Mobile Portrait", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Mobile Landscape", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet Portrait", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet Landscape", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Laptop", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Widescreen", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } } }, "version": "3.14.0", "is_static": false, "experimentalFeatures": { "a11y_improvements": true, "additional_custom_breakpoints": true, "landing-pages": true }, "urls": { "assets": "https:\/\/listeo.pro\/wp-content\/plugins\/elementor\/assets\/" }, "swiperClass": "swiper-container", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 9536, "title": "Home%206%20%E2%80%93%20Listeo", "excerpt": "", "featuredImage": false } };
+</script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/elementor/assets/js/frontend.min.js' %}"
+    id="elementor-frontend-js"></script>
+<script type="text/javascript" src="{% static 'web/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js' %}"
+    id="preloaded-modules-js"></script>
+
+    

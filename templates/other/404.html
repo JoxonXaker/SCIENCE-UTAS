@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}404 not found{% endblock %}
+
+{% block content %}
+<div class="header-container with-titlebar basic">
+    <div id="titlebar" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Page Not Found</h2>
+                    <nav id="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+                        <ul>
+
+                            <li class="home"><span property="itemListElement" typeof="ListItem"><a property="item"
+                                        typeof="WebPage" title="Go to Home." href="{% url 'home' %}"
+                                        class="home"><span property="name">Home</span></a>
+                                    <meta property="position" content="1">
+                                </span></li>
+                            <li class="404 current-item"><span property="itemListElement" typeof="ListItem"><span
+                                        property="name" class="404 current-item">404</span>
+                                    <meta property="url" content="">
+                                    <meta property="position" content="2">
+                                </span></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <section id="not-found" class="center margin-bottom-50">
+                <h2>404 <i class="fa fa-question-circle"></i></h2>
+                <p>We’re sorry, but the page you were looking for doesn’t exist..</p>
+
+                <!-- <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <form method="get" class="search-form" action="" role="search">
+                            <div class="main-search-input gray-style margin-top-50 margin-bottom-10">
+                                <div class="main-search-input-item">
+                                    <input type="text" name="s" placeholder="What are you looking for?" value="">
+                                </div>
+                                <button class="button">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> -->
+
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% load static %}
+
+<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+    <div class="small-dialog-header">
+        <h3>Sign In</h3>
+    </div>
+
+    <div class="sign-in-form style-1">
+        <ul class="tabs-nav">
+            <li class=""><a href="#">Log In</a></li>
+            <li><a href="{% url 'signup' %}">Register</a></li>
+        </ul>
+        <div class="tabs-container alt">
+
+            <div class="tab-content">
+                <form method="post" id="login" class="login" action="https://listeo.pro/wp-login.php">
+                    <div class="sign-in-demo-notice">
+                        Username: <strong>guest</strong> or <strong>owner</strong><br>
+                        Password: <strong>demo_2023</strong>
+                    </div>
+                    <p class="form-row form-row-wide">
+                        <label for="user_login">
+                            <i class="sl sl-icon-user"></i>
+                            <input placeholder="Username/Email" type="text" class="input-text" name="log"
+                                id="user_login" value="">
+                        </label>
+                    </p>
+                    <p class="form-row form-row-wide">
+                        <label for="user_pass">
+                            <i class="sl sl-icon-lock"></i>
+                            <input placeholder="Password" class="input-text" type="password" name="pwd" id="user_pass">
+                        </label>
+                        <span class="lost_password">
+                            <a href="https://listeo.pro/wp-login.php?action=lostpassword">Lost Your Password?</a>
+                        </span>
+                    </p>
+                    <div class="form-row">
+                        <input type="hidden" id="login_security" name="login_security" value="a03fca182d"><input
+                            type="hidden" name="_wp_http_referer" value="/home-6/"> <input type="submit"
+                            class="button border margin-top-5" name="login" value="Login">
+                        <div class="checkboxes margin-top-10">
+                            <input name="rememberme" type="checkbox" id="remember-me" value="forever">
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                    </div>
+                    <div class="notification error closeable"
+                        style="display: none; margin-top: 20px; margin-bottom: 0px;">
+                        <p></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="tab-content" id="tab2" style="display: none;">
+                <form enctype="multipart/form-data" class="register listeo-registration-form" id="register"
+                    action="https://listeo.pro/wp-login.php?action=register" method="post">
+                    <div class="account-type">
+                        <div>
+                            <input type="radio" name="user_role" id="freelancer-radio" value="guest"
+                                class="account-type-radio" checked="">
+                            <label for="freelancer-radio"><i class="sl sl-icon-user"></i> Guest</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="user_role" id="employer-radio" value="owner"
+                                class="account-type-radio">
+                            <label for="employer-radio"><i class="sl sl-icon-briefcase"></i> Owner</label>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <p class="form-row form-row-wide">
+                        <label for="username2">
+                            <i class="sl sl-icon-user"></i>
+                            <input required="" placeholder="Username" type="text" class="input-text" name="username"
+                                id="username2" value="">
+                        </label>
+                    </p>
+                    <p class="form-row form-row-wide">
+                        <label for="password1">
+                            <i class="sl sl-icon-lock"></i>
+                            <input required="" placeholder="Password" class="input-text" type="password" name="password"
+                                id="password1">
+                            <span id="password-strength">Password Strength</span>
+                        </label>
+                    </p>
+                    <p class="form-row form-row-wide">
+                        <label for="email">
+                            <i class="sl sl-icon-envelope-open"></i>
+                            <input required="" type="email" placeholder="Email Address" class="input-text" name="email"
+                                id="email" value="">
+                        </label>
+                    </p>
+
+                    <div id="listeo-core-registration-fields">
+                    </div>
+
+                    <p class="form-row captcha_wrapper">
+                    <div class="g-recaptcha" data-sitekey="6LdQ44oUAAAAAIAOew1cUXBWPv2hrtuBGOH0Qg-D"></div>
+
+                    <p class="form-row margin-top-10 checkboxes margin-bottom-10">
+                        <input type="checkbox" id="terms_and_conditions" name="terms_and_conditions">
+                        <label for="terms_and_conditions">I agree to the <a href="../privacy-policy/index.htm">Terms
+                                and Conditions</a> </label>
+                    </p>
+                    <input type="hidden" id="register_security" name="register_security" value="a03fca182d"><input
+                        type="hidden" name="_wp_http_referer" value="/home-6/"> <input type="submit"
+                        class="button border fw margin-top-10" name="register" value="Register">
+                    <div class="notification error closeable"
+                        style="display: none;margin-top: 20px; margin-bottom: 0px;">
+                        <p></p>
+                    </div>
+                </form>
+                <div class="listeo-custom-fields-wrapper">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+{% load static %}
+{% load i18n %}
+
+<nav class="mobile-navigation-wrapper">
+    <div class="mobile-nav-header">
+        <div class="menu-logo">
+            <a href="{% url 'home' %}" class="" title="SCIENCE-UTAS" rel="home"><img id="listeo_logo"
+                    src="{% static 'web/logo/logo.svg' %}"
+                    data-rjs="{% static 'web/logo/logo.svg' %}" alt="SCIENCE-UTAS"></a>
+        </div>
+        <a href="#" class="menu-icon-toggle"></a>
+    </div>
+    <div class="mobile-navigation-list">
+        <ul id="mobile-nav" class="menu">
+
+            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-20">
+                <a href="{% url 'home' %}">Main</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-21">
+                        <a href="/#aboutPage">About Us</a>
+                    </li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-21">
+                        <a href="{% url 'articles' %}">Article Page</a>
+                    </li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-21">
+                        <a href="{% url 'contact' %}">Contact Page</a>
+                    </li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-21">
+                        <a href="{% url 'journals' %}">Journals Page</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-75">
+                <a href="#">Pages</a>
+                <ul class="sub-menu">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-540"><a
+                            href="{% url 'profile' %}">My Profile</a>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-540">
+                        <a href="{% url 'password_change' %}">Change Password</a>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-540"><a
+                            href="{% url 'coming_soon' %}">Coming soon</a>
+                    </li>
+
+                    <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-540"><a
+                            href="{% url 'profile' %}">My Profile</a>
+                    </li> -->
+                </ul>
+            </li>
+
+            {% include 'layouts/language.html' %}
+
+
+        </ul>
+    </div>
+    <div class="mobile-nav-widgets">
+        <aside id="text-5" class="mobile-menu-widget widget widget_text">
+            <h4>Contact Us</h4>
+            <div class="textwidget">
+                <p>Address:
+                    <a class="white-color" href="https://www.google.com/maps/place/Toshkent+Amaliy+Fanlar+Universiteti+F-bino/@41.2801779,69.2908154,14z/data=!4m6!3m5!1s0x38aef599cd311ceb:0xacc5e200394bbe16!8m2!3d41.2882265!4d69.3029594!16s%2Fg%2F11l2z9v38y?entry=ttu"
+                        target="_blank" rel="noopener noreferrer">
+                        Fargona Road 147, Yashnobod District, Tashkent</a><br>
+                    Phone: <a class="white-color" href="tel:+998712000540">+998 (71) 200 05 40</a><br>
+                    E-Mail: <a class="white-color" href="mailto:info@utas.uz">info@utas.uz</a>
+                </p>
+                <style>
+                    .white-color{
+                        color: aliceblue;
+                    }
+                </style>
+            </div>
+        </aside>
+    </div>
+</nav>

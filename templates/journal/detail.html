@@ -1,0 +1,159 @@
+﻿{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{{object.title}}{% endblock %}
+{% block content %}
+<div class="single-listing-page-titlebar"></div>
+
+<div class="container service">
+
+  <div class="row">
+    <div id="listing-gallery" class="col-md-12 listeo-grid-gallery-title">
+      <div id="titlebar" class="listing-titlebar  listing-titlebar-has-logo">
+        <div class="listing-logo"> 
+          <a data-grid-start-index="0" href="{{ object.imageURL }}" class="slg-gallery-img">
+            <img src="{{ object.imageURL }}">
+          </a>
+          <style>
+            .listing-logo{
+              width: 200px;
+              height: auto;
+            }
+          </style>
+          
+        </div>
+        <div class="listing-titlebar-title">
+          
+          <span>
+            <a href="#listing-overview" class="listing-address">
+              <i class="fa fa-calendar"></i>
+              {{ object.valume }} </a>
+          </span> <br>
+          <h1>{{ object.title }}</h1><br>
+          
+          <span>
+            <a href="#listing-overview" class="listing-address">
+              Director:&nbsp; {{ object.director }} <br>
+              Editors:&nbsp; {{ object.lead_editor }}
+            </a>
+          </span><br><br>
+
+          <div class="listing-titlebar-tags">
+            <span class="listing-pricing-tag" style="background-color: #f6f6f6; color: #888;">
+              <i class="fa fa-bookmark" style="background-color: #888; color: #f6f6f6;"></i>
+              Type: PDF
+            </span>
+            <a href="{{ object.fileURL }}">
+              <span class="listing-pricing-tag" style="background-color: #d7eaff; color: #3983d3;">
+                <i class="fa fa-eye" style="background-color: #3983d3;"></i>
+                View: 2
+              </span>
+            </a>
+            <a href="{{ object.fileURL }}" download>
+            <span class="listing-pricing-tag">
+              <i class="fa fa-download"></i>
+              Download: 1
+            </span></a>
+          </div>
+          
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="row sticky-wrapper">
+
+    <div class="col-lg-8 col-md-8 listeo-single-listing-content padding-right-30">
+
+
+      <div id="listing-nav" class="listing-nav-container">
+        <ul class="listing-nav">
+          <li><a href="#listing-overview" class="active">About</a></li>
+          <li><a href="#listing-pricing-list">Authors</a></li>
+          <li><a href="#listing-store">Store</a></li>
+          <li><a href="#listing-location">Location</a></li>
+          <li><a href="#listing-reviews">Reviews</a></li>
+          <li><a href="#add-review">Add Review</a></li>
+        </ul>
+      </div>
+
+      
+      
+
+      <div id="listing-overview" class="listing-section">
+
+
+        <p>{{ object.detail | safe }}</p>
+
+        <div class="listing-links-container">
+          <h3 class="listing-desc-headline">{% trans 'Contact' %}</h3>
+
+          <ul class="listing-links contact-links">
+            <li><a href="tel:+998 90 345 16 96" class="listing-links"><i class="fa fa-phone"></i> +998 90 345 16 96</a></li>
+            <li><a href="tel:+998 90 345 96 96" class="listing-links"><i class="fa fa-phone"></i> +998 90 345 96 96</a></li>
+            <li><a href="mailto:info@utas.uz" class="listing-links"><i class="fa fa-envelope-o"></i> info@utas.uz</a>
+            </li>
+          </ul>
+          ​
+        </div>
+
+        <div class="clearfix"></div>
+
+        <h3 class="listing-desc-headline">{% trans 'Social Media' %}</h3>
+        
+        <ul class="listing-features checkboxes margin-top-0">
+          <li class="feature-has-icon">
+            <span class="feature-svg-icon"><i class="fa fa-globe"></i></span>
+            <a href="{{ object.website }}" target="_blank">Our web site</a>
+          </li>
+          <li class="feature-has-icon">
+            <span class="feature-svg-icon"><i class="fa fa-facebook"></i></span>
+            <a href="{{ object.facebook }}" target="_blank">Facebook</a>
+          </li>
+          <li class="feature-has-icon">
+            <span class="feature-svg-icon"><i class="fa fa-telegram"></i></span>
+            <a href="{{ object.telegram }}" target="_blank">Telegram</a>
+          </li>
+          <li class="feature-has-icon">
+            <span class="feature-svg-icon"><i class="fa fa-youtube"></i></span>
+            <a href="{{ object.youtube }}" target="_blank">YouTube</a>
+          </li>
+          <li class="feature-has-icon">
+            <span class="feature-svg-icon"><i class="fa fa-whatsapp"></i></span>
+            <a href="{{ object.whatsapp }}" target="_blank">WhatsApp</a>
+          </li>
+          <li class="feature-has-icon">
+            <span class="feature-svg-icon"><i class="fa fa-instagram"></i></span>
+            <a href="{{ object.instagram }}" target="_blank">Instagram</a>
+          </li>
+        </ul>
+      </div>
+
+      {% include 'journal/detail/authors.html' %}
+
+      <div id="listing-video" class="listing-section">
+        <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Video</h3>
+        <div class="responsive-iframe">
+          <iframe width="760" height="428" src="https://www.youtube.com/embed/PTXyWD_NvdY?si=in0c7PWEGMzkYWWP"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+      
+        </div>
+      </div>
+      <br><br><br>
+      
+    </div>
+    
+    {% include 'journal/parts/sidebar.html' %}
+
+  </div>
+</div>
+
+{% endblock %}

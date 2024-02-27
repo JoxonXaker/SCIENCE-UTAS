@@ -1,0 +1,71 @@
+{% load static %}
+{% load i18n %}
+<div class="light">
+
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-5 col-sm-6 col-xs-12">
+                <aside id="text-2" class="footer-widget widget widget_text">
+                    <div class="textwidget">
+                        <p>
+                            <img decoding="async" loading="lazy" class="footer-logo alignnone" src="{% static 'web/logo/main_logo.svg' %}" alt="" width="191"height="59">
+                            &nbsp;&nbsp;SCIENCE-UTAS
+                        </p>
+                        <p>{% trans 'MainPageInfo' %}</p>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <aside id="nav_menu-2" class="footer-widget widget widget_nav_menu">
+                    <h4>Helpful Links</h4>
+                    <div class="menu-helpful-links-container">
+                        <ul id="menu-helpful-links" class="menu">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="{% url 'home' %}#aboutPage">About Us</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="{% url 'articles' %}">Articles Page</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="{% url 'journals' %}">Journals Page</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <aside id="nav_menu-4" class="footer-widget widget widget_nav_menu">
+                    <div class="menu-helpful-links-2-container">
+                        <ul id="menu-helpful-links-2" class="menu">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="{% url 'profile' %}">My Profile</a></li>
+                                    
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                            href="{% url 'articles' %}?filter=my">{% trans 'My Articles' %}</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="{% url 'coming_soon' %}">{% trans 'Create Article' %}</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="{% url 'coming_soon' %}">{% trans 'Coming soon' %}</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <aside id="text-3" class="footer-widget widget widget_text">
+                    <h4>Contact Us</h4>
+                    <div class="textwidget">
+                        <p>Address:
+                            <a href="https://www.google.com/maps/place/Toshkent+Amaliy+Fanlar+Universiteti+F-bino/@41.2801779,69.2908154,14z/data=!4m6!3m5!1s0x38aef599cd311ceb:0xacc5e200394bbe16!8m2!3d41.2882265!4d69.3029594!16s%2Fg%2F11l2z9v38y?entry=ttu" target="_blank" rel="noopener noreferrer">
+                            Fargona Road 147, Yashnobod District, Tashkent</a><br>
+                            Phone: <a href="tel:+998712000540">+998 (71) 200 05 40</a><br>
+                            E-Mail: <a href="mailto:info@utas.uz">info@utas.uz</a>
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyrights"> &copy; SCIENCE-UTAS.&nbsp; All Rights Reserved.</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+{% load static %}
+
+<section id="articlesPage"
+    class="elementor-section elementor-top-section elementor-element elementor-element-414f58c elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+    data-id="414f58c" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-row">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d992746"
+                data-id="d992746" data-element_type="column">
+                <div class="elementor-column-wrap elementor-element-populated">
+                    <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-633b2c89 elementor-widget elementor-widget-listeo-headline"
+                            data-id="633b2c89" data-element_type="widget" data-widget_type="listeo-headline.default">
+                            <div class="elementor-widget-container">
+                                <h3 style="text-align:center;"
+                                   class="headline  headline-aligned-to-center headline-extra-spacing headline-box  headline-with-subtitle ">
+                                    Maqolalar Ro`yxati <span>
+                                    Foydalanuvchilarimiz tomonidan yaratilgan
+                                    </span></h3>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-afc2216 elementor-widget elementor-widget-listeo-posts-grid"
+                            data-id="afc2216" data-element_type="widget" data-widget_type="listeo-posts-grid.default">
+                            <div class="elementor-widget-container">
+                                <div class="listeo-post-grid-wrapper">
+                                    <div class="row">
+                                        {% for article in articles %}
+                                        <div class="col-md-4">
+                                            <a href="{% url 'article_detail' article.id %}"
+                                                class="blog-compact-item-container">
+                                                <div class="blog-compact-item">
+                                                    <img width="577" height="577"
+                                                        src="{% static 'web/wp-content/uploads/2021/09/main.jpg' %}"
+                                                        class="attachment-listeo-blog-related-post size-listeo-blog-related-post wp-post-image"
+                                                        alt="" decoding="async" loading="lazy"
+                                                        sizes="(max-width: 577px) 100vw, 577px">
+                                                        <span class="blog-item-tag" style="color: #19b453;">
+                                                            Checked 
+                                                            <i class="fa fa-check-circle"></i>
+                                                        </span>
+                                                    <div class="blog-compact-item-content">
+                                                        <ul class="blog-post-tags">
+                                                            <li>
+                                                                <time class="entry-date published"
+                                                                    datetime="2019-02-01T00:55:49+00:00">{{ article.created }}</time>
+                                                            </li>
+                                                        </ul>
+                                                        <h3>
+                                                            <i class="fa fa-user"></i>
+                                                            {{ article.author }}
+                                                        </h3>
+                                                        <p>{{ article.title }}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% endfor %} 
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-12 centered-content">
+                                    <a href="{% url 'articles' %}" class="button border margin-top-10">More...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

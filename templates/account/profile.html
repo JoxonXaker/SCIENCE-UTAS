@@ -1,0 +1,178 @@
+{% extends 'account/parts/base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'My Profile' %}
+{% endblock %}
+
+{% block content %}
+    
+    <div id="titlebar">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>My Profile</h1>
+
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>My Profile</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification notice closeable margin-bottom-35 {% if message.tags %}{{ message.tags }}-message{% endif %}">
+            <p>{{ message }}</p><a class="close"></a>
+        </div>
+        {% endfor %}
+    {% endif %}
+
+
+
+    <div class="row">
+
+        <div class="col-lg-8 col-md-12">
+            <div class="dashboard-list-box margin-top-0">
+                <h4 class="gray">Profile Details</h4>
+            
+                <form method="post">
+                    <div class="dashboard-list-box-static">
+                        {% csrf_token %}
+                        {{ form.media }} 
+                        
+                            <label for="id_{{ form.username.name }}">
+                                {{ form.username.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.username.help_text }}"></i>
+                            </label>
+                            {{form.username}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.username.errors }}</span>
+
+
+                            <label for="id_{{ form.first_name.name }}">
+                                {{ form.first_name.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.first_name.help_text }}"></i>
+                            </label>
+                            {{form.first_name}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.first_name.errors }}</span>
+
+
+                            <label for="id_{{ form.last_name.name }}">
+                                {{ form.last_name.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.last_name.help_text }}"></i>
+                            </label>
+                            {{form.last_name}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.last_name.errors }}</span>
+
+
+                            <label for="id_{{ form.avatar.name }}">
+                                {{ form.avatar.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.avatar.help_text }}"></i>
+                            </label>
+                            {{form.avatar}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.avatar.errors }}</span>
+
+
+                            <label for="id_{{ form.email.name }}">
+                                {{ form.email.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.email.help_text }}"></i>
+                            </label>
+                            {{form.email}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.email.errors }}</span>
+
+
+                            <label for="id_{{ form.phone_number.name }}">
+                                {{ form.phone_number.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.phone_number.help_text }}"></i>
+                            </label>
+                            {{form.phone_number}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.phone_number.errors }}</span>
+
+
+                            <label for="id_{{ form.address.name }}">
+                                {{ form.address.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.address.help_text }}"></i>
+                            </label>
+                            {{form.address}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.address.errors }}</span>
+
+
+                            <label for="id_{{ form.bio.name }}">
+                                {{ form.bio.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.bio.help_text }}"></i>
+                            </label>
+                            {{form.bio}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.bio.errors }}</span>
+
+
+                            <label for="id_{{ form.facebook.name }}">
+                                {{ form.facebook.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.facebook.help_text }}"></i>
+                            </label>
+                            {{form.facebook}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.facebook.errors }}</span>
+
+
+                            <label for="id_{{ form.telegram.name }}">
+                                {{ form.telegram.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.telegram.help_text }}"></i>
+                            </label>
+                            {{form.telegram}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.telegram.errors }}</span>
+
+
+                            <label for="id_{{ form.instagram.name }}">
+                                {{ form.instagram.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.instagram.help_text }}"></i>
+                            </label>
+                            {{form.instagram}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.instagram.errors }}</span>
+
+
+                            <label for="id_{{ form.whatsapp.name }}">
+                                {{ form.whatsapp.label|safe }}
+                                <i class="tip" data-tip-content="{{ form.whatsapp.help_text }}"></i>
+                            </label>
+                            {{form.whatsapp}}
+                            <span style="color: #f92442; font-size: medium;">{{ form.whatsapp.errors }}</span>
+
+                            <button type="submit" class="button margin-top-20 margin-bottom-20">Save Changes</button> 
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <div class="dashboard-list-box margin-top-0">
+                <h4 class="gray">Profile Photo</h4>
+                <div style="display: flex; justify-content: center; padding-top: 30px; background-color: #fff;">
+                    <div class="edit-profile-photo">
+                        <div class="dropzone dz-clickable dz-started dz-max-files-reached">
+                            <div class="dz-image" style="width: 200px;">
+                                <img  alt="mySelf.jpg" src="{{ user.imageURL }}">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
+
+{% include 'account/layouts/footer.html' %}
+
+

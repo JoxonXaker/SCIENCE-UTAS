@@ -1,0 +1,167 @@
+{% extends 'account/parts/base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans 'My Artiles' %}{% endblock %}
+
+{% block content %}
+
+    <div id="titlebar">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{% trans 'My Article' %}</h1>
+
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>{% trans 'Articles' %}</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    {% if messages %}
+    <div class="notification notice closeable margin-bottom-35">
+        {% for message in messages %}
+        <p>{{ message }}</p><a class="close"></a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="dashboard-list-box margin-top-0">
+                <form id="my-listings-search-form" action="">
+                    <input type="hidden" name="status" value="pending">
+                    <input type="text" name="search" id="my-listings-search" placeholder="Search listing" value="">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <h4>
+                    My All Articless
+                </h4>
+
+                <ul>
+                    {% for object in objects %}
+                        <li>
+                            <div class="list-box-listing">
+                                <!-- <div class="list-box-listing-img">
+                                    
+                                </div> -->
+                                <a href="{% url 'article_detail' object.id %}">
+                                    <div class="list-box-listing-content">
+                                        <div class="inner">
+                                            <h3 style="font-size: 15px;">{{ object.title }}</h3>
+                                            <span style="display: block; font-weight: 300;">
+                                                {{ object.about }}
+                                            </span>
+                                            <span class="expiration-date">Journal: {{ object.journal }}</span>
+                                        </div>
+                                    </a>
+
+                                    <div id="ical-export-dialog-26694"
+                                        class="listeo-dialog ical-export-dialog zoom-anim-dialog mfp-hide">
+                                        <div class="small-dialog-header">
+                                            <h3> {{ object.journal }} </h3>
+                                        </div>
+
+                                        <div class="sign-in-form style-1">
+                                            <div><input type="text" class="listeo-export-ical-input" value="{{ object.journal }}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="ical-import-dialog-26694"
+                                        class="listeo-dialog ical-import-dialog zoom-anim-dialog  mfp-hide">
+                                        <div class="small-dialog-header">
+                                            <h3>iCal Import</h3>
+                                        </div>
+
+                                        <div class="sign-in-form style-1">
+                                            <div class="saved-icals">
+                                            </div>
+                                            <h4>Import New Calendar</h4>
+                                            <form action="" data-listing-id="26694" class="ical-import-form"
+                                                id="ical-import-form-26694">
+                                                <p>
+                                                    <input required="" placeholder="Name" type="text"
+                                                        class="import_ical_name" name="import_ical_name">
+                                                </p>
+                                                <p>
+                                                    <input required=""
+                                                        placeholder="URL to .ical, .ics, .ifb or .icalendar file"
+                                                        type="text" class="import_ical_url" name="import_ical_url">
+                                                </p>
+                                                <div class="checkboxes in-row margin-bottom-20">
+                                                    <input type="checkbox" name="import_ical_force_update"
+                                                        class="import_ical_force_update input-checkbox"
+                                                        id="import_ical_force_update">
+                                                    <label for="import_ical_force_update">Force Update conflicting ical
+                                                        events</label>
+                                                </div>
+                                                <button class="button"><i
+                                                        class="fa fa-circle-o-notch fa-spin"></i>Save</button>
+                                            </form>
+                                            <div class="notification notice margin-top-20" style="display: none">
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="buttons-to-right">
+                                <div class="ical-dropdown-btn">
+                                    <i class="sl sl-icon-bell"></i> Status 
+                                    <ul>
+                                        <li>
+                                            <a href="#ical-export-dialog-26694" class="button popup-with-zoom-anim">iCal
+                                                Export</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ical-import-dialog-26694" class="button popup-with-zoom-anim">iCal
+                                                Import</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="{% url 'article_update' object.id %}" class="button gray edit">
+                                    <i class="sl sl-icon-note"></i> Edit
+                                </a>
+                                <a href="?delete={{object.id}}" class="button gray delete" onclick='return confirm(`{% trans "Do you want to delete?" %}`);''>
+                                    <i class="sl sl-icon-trash"></i> Delete</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <script>
+
+            </script>
+            <div class="clearfix"></div>
+
+            <!-- PAGINATOR -->
+
+            <!-- <div class="pagination-container margin-top-30 margin-bottom-0">
+                <nav class="pagination">
+                    <ul class="page-numbers">
+                        <li><span aria-current="page" class="page-numbers current">1</span></li>
+                        <li><a class="page-numbers" href="/my-listings/?status=pending&amp;listings_paged=2">2</a></li>
+                        <li><a class="page-numbers" href="/my-listings/?status=pending&amp;listings_paged=3">3</a></li>
+                        <li><span class="page-numbers dots">…</span></li>
+                        <li><a class="page-numbers" href="/my-listings/?status=pending&amp;listings_paged=33">33</a>
+                        </li>
+                        <li><a class="next page-numbers" href="/my-listings/?status=pending&amp;listings_paged=2"><i
+                                    class="sl sl-icon-arrow-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div> -->
+
+            <a href="{% url 'article_create' %}" class="margin-top-35 button"><i class="fa fa-cloud-upload"></i> Create New Article</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

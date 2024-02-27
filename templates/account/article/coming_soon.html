@@ -1,0 +1,132 @@
+{% extends 'account/parts/base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Coming soon' %}
+{% endblock %}
+
+{% block content %}
+
+<div id="wrapper">
+
+    <div class="coming-soon-page">
+        <style>
+            .coming-soon-page {
+                background-image: url("{% static 'web/wp-content/uploads/2018/11/main-search-background-01.jpg' %}");
+            }
+        </style>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h1 style="color: #eee;">
+                        <img src="{% static 'web/logo/main_logo.svg' %}" alt="">
+                        SCIENCE UTAS
+                    </h1>
+                    <h3>We are launching Science UTAS soon!</h3>
+                    <div id="countdown" data-count="2024/02/07" class="countdown margin-bottom-35">
+                        <div><span>%d</span><i>Days</i></div>
+                        <div><span>%h</span><i>Hours</i></div>
+                        <div><span>%m</span><i>Minutes</i></div>
+                        <div><span>%s</span><i>Seconds</i></div>
+                    </div>
+
+                    <script>
+                        (function () {
+                            "use strict";
+
+                            /**
+                             * Easy selector helper function
+                             */
+                            const select = (el, all = false) => {
+                                el = el.trim()
+                                if (all) {
+                                    return [...document.querySelectorAll(el)]
+                                } else {
+                                    return document.querySelector(el)
+                                }
+                            }
+
+                            /**
+                             * Easy event listener function
+                             */
+                            const on = (type, el, listener, all = false) => {
+                                let selectEl = select(el, all)
+                                if (selectEl) {
+                                    if (all) {
+                                        selectEl.forEach(e => e.addEventListener(type, listener))
+                                    } else {
+                                        selectEl.addEventListener(type, listener)
+                                    }
+                                }
+                            }
+
+                            /**
+                             * Easy on scroll event listener 
+                             */
+                            const onscroll = (el, listener) => {
+                                el.addEventListener('scroll', listener)
+                            }
+
+
+
+                            /**
+                             * Countdown timer
+                             */
+                            let countdown = select('.countdown');
+                            const output = countdown.innerHTML;
+
+                            const countDownDate = function () {
+                                let timeleft = new Date(countdown.getAttribute('data-count')).getTime() - new Date().getTime();
+
+                                let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+                                let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                let minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+                                let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+                                countdown.innerHTML = output.replace('%d', days).replace('%h', hours).replace('%m', minutes).replace('%s', seconds);
+                            }
+                            countDownDate();
+                            setInterval(countDownDate, 1000);
+
+                        })()    
+                    </script>
+
+                    <br>
+                    <div id="mc_embed_signup">
+                        <form
+                            action="https://purethemes.us5.list-manage.com/subscribe/post?u=e44a1d03c23c8def515ce3208&id=f43a022bd8"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate" target="_blank" novalidate="">
+                            <div class="main-search-input gray-style margin-top-30 margin-bottom-10">
+                                <div class="main-search-input-item">
+                                    <input type="email" placeholder="Your email address" value="" name="EMAIL"
+                                        class="required email" id="mce-EMAIL">
+                                </div>
+                                <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                                    class="button">Notify Me</button>
+                            </div>
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                            <script type="text/javascript"
+                                src="https://downloads.mailchimp.com/js/mc-validate.js"></script>
+                            <script
+                                type="text/javascript">(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                    name="b_e44a1d03c23c8def515ce3208_f43a022bd8" tabindex="-1" value=""></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

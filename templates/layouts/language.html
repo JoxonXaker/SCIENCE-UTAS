@@ -1,0 +1,43 @@
+{% load static %}
+{% load i18n %}
+
+{% get_current_language as lang_code %}
+{% get_available_languages as languages %}
+
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children parentid0 depth0 dropdown">
+    {% if languages.0.0 == lang_code %}
+        <a href="#"><img src="{% static 'web/language/uz.png' %}" alt="">&nbsp; O`zbek</a>
+    {% elif languages.1.0 == lang_code %}
+        <a href="#"><img src="{% static 'web/language/ru.png' %}" alt="">&nbsp; Русский</a>
+    {% elif languages.2.0 == lang_code %}
+        <a href="#"><img src="{% static 'web/language/uk.png' %}" alt="">&nbsp; English</a>
+    {% endif %}
+
+    <ul class="sub-menu ">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67 parentid66 depth1 dropdown">
+            <a href="/uz">
+                <img src="{% static 'web/language/uz.png' %}" alt="">&nbsp; O`zbek
+            </a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-864 parentid66 depth1 dropdown">
+            <a href="/ru">
+                <img src="{% static 'web/language/ru.png' %}" alt="">&nbsp; Русский
+            </a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68 parentid66 depth1 dropdown">
+            <a href="/en">
+                <img src="{% static 'web/language/uk.png' %}" alt="">&nbsp; English
+            </a>
+        </li>
+
+        <style>
+            li a img{
+                width: 16px;
+                padding-bottom: 3px;
+            }
+        </style>
+
+
+
+    </ul>
+</li>

@@ -1,0 +1,206 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as lang_code %}
+{% get_available_languages as languages %}
+
+
+    <div id="header" class=" not-sticky">
+        <div class="container">
+
+            <div class="left-side">
+                <div id="logo">
+                    <a href="{% url 'home' %}" class="dashboard-logo" title="SCIENCE-UTAS" rel="home">
+                        <img id="listeo_logo" src="{% static 'web/logo/logo.svg' %}" data-rjs="" alt="SCIENCE-UTAS">
+
+                    </a>
+                </div>
+
+                <div class="mmenu-trigger ">
+                    <button class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+
+                <nav id="navigation" class="style-1">
+                    <ul id="responsive" class="menu">
+                        
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children parentid0 depth0 dropdown">
+                            <a href="#">Main</a>
+                            <ul class="sub-menu ">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-51 parentid50 depth1 dropdown">
+                                    <a href="{% url 'home' %}#aboutPage">About Us</a>
+                                    <!-- <ul class="sub-menu ">
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52 parentid51 depth2 dropdown">
+                                            <a href="../list-with-sidebar/index.htm">With Sidebar</a>
+                                        </li>
+                                    </ul> -->
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-51 parentid50 depth1 dropdown">
+                                    <a href="{% url 'articles' %}">Articles Page</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-51 parentid50 depth1 dropdown">
+                                    <a href="{% url 'journals' %}">Journals Page</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-51 parentid50 depth1 dropdown">
+                                    <a href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        {% include 'layouts/language.html' %}
+
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children parentid0 depth0 has-megamenu">
+                            <a href="#">Pages</a>
+                            <div class="mega-menu mobile-styles three-columns ">
+                                <ul>
+                                    <li
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-76 parentid75 depth1 dropdown">
+                                        <span class="mega-menu-headline">Pages</span>
+                                        <ul class="sub-menu ">
+                                            <li
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-540 parentid76 depth2 dropdown">
+                                                <a href="{% url 'profile' %}"><i class=" sl sl-icon-user"></i>
+                                                    User Profile</a></li>
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80 parentid76 depth2 dropdown">
+                                                <a href="{% url 'profile' %}"><i class=" sl sl-icon-docs"></i> Blog</a>
+                                            </li>
+                                            <li
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-976 parentid76 depth2 dropdown">
+                                                <a href="{% url 'profile' %}"><i
+                                                        class=" sl sl-icon-pencil"></i> Single Post</a></li>
+                                        </ul>
+                                    </li>
+                                    <li
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-77 parentid75 depth1 dropdown">
+                                        <span class="mega-menu-headline">More Pages</span>
+                                        <ul class="sub-menu ">
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-81 parentid77 depth2 dropdown">
+                                                <a href="{% url 'contact' %}"><i class=" sl sl-icon-envelope-open"></i>
+                                                    Contact</a></li>
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975 parentid77 depth2 dropdown">
+                                                <a href="{% url 'profile' %}"><i class=" sl sl-icon-check"></i>
+                                                    Claim Listing</a></li>
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-82 parentid77 depth2 dropdown">
+                                                <a href="{% url 'coming_soon' %}"><i class=" sl sl-icon-hourglass"></i>
+                                                    Coming Soon</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-78 parentid75 depth1 dropdown">
+                                        <span class="mega-menu-headline">Other</span>
+                                        <ul class="sub-menu ">
+                                            <li
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83 parentid78 depth2 dropdown">
+                                                <a href="{% url '404' %}"><i class=" sl sl-icon-close"></i>
+                                                    404 Page</a></li>
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-91 parentid78 depth2 dropdown">
+                                                <a href="../pricing-tables/index.htm"><i class=" sl sl-icon-tag"></i>
+                                                    Pricing Tables</a></li>
+                                            <li
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92 parentid78 depth2 dropdown">
+                                                <a href="../typography/index.htm"><i class=" sl sl-icon-pencil"></i>
+                                                    Typography</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <div class="clearfix"></div>
+
+            </div>
+
+
+            <div class="right-side" style="user-select: none;">
+                <div class="header-widget">
+
+                    {% if user.is_authenticated %}
+
+                        <!-- <div class="listeo-cart-container">
+                            <div class="mini-cart-button"><i class="fa fa-bell"></i><span class="badge">2</span>
+                            </div>
+                            <div class="listeo-cart-wrapper">
+                                <div class="listeo-mini-cart">
+                                    <ul class="woocommerce-mini-cart cart_list cart-list product_list_widget">
+                                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                                            <a href="https://listeo.pro/product/slippers/?attribute_color=Red">
+                                                <img width="300" height="300"
+                                                    src="https://listeo.pro/wp-content/uploads/2021/10/slippers-300x300.jpg"
+                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async"
+                                                    loading="lazy"
+                                                    srcset="https://listeo.pro/wp-content/uploads/2021/10/slippers-300x300.jpg 300w, https://listeo.pro/wp-content/uploads/2021/10/slippers-100x100.jpg 100w, https://listeo.pro/wp-content/uploads/2021/10/slippers-150x150.jpg 150w, https://listeo.pro/wp-content/uploads/2021/10/slippers-590x590.jpg 590w, https://listeo.pro/wp-content/uploads/2021/10/slippers-200x200.jpg 200w"
+                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
+                                            <a href="https://listeo.pro/product/slippers/?attribute_color=Red" class="mini-cart-product-name">
+                                                <span class="mini-cart-product-price">Slippers</span>
+                                                <span class="mini-cart-quantity">1 × <span class="woocommerce-Price-amount amount"><bdi><span
+                                                                class="woocommerce-Price-currencySymbol">$</span>19.00</bdi></span></span> </a>
+                                        </li>
+                                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                                            <a href="https://listeo.pro/product/extended/">
+                                                <img width="300" height="300"
+                                                    src="https://listeo.pro/wp-content/uploads/woocommerce-placeholder-300x300.png"
+                                                    class="woocommerce-placeholder wp-post-image" alt="Placeholder" decoding="async" loading="lazy"
+                                                    srcset="https://listeo.pro/wp-content/uploads/woocommerce-placeholder-300x300.png 300w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-100x100.png 100w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-600x600.png 600w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-1024x1024.png 1024w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-150x150.png 150w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-768x768.png 768w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-590x590.png 590w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-670x670.png 670w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-577x577.png 577w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-200x200.png 200w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-60x60.png 60w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder-90x90.png 90w, https://listeo.pro/wp-content/uploads/woocommerce-placeholder.png 1200w"
+                                                    sizes="(max-width: 300px) 100vw, 300px"> </a>
+                                            <a href="https://listeo.pro/product/extended/" class="mini-cart-product-name">
+                                                <span class="mini-cart-product-price">Extended</span>
+                                                <span class="mini-cart-quantity">1 × <span class="woocommerce-Price-amount amount"><bdi><span
+                                                                class="woocommerce-Price-currencySymbol">$</span>9.99</bdi></span></span> </a>
+                                        </li>
+                                    </ul>
+                                    <p class="woocommerce-mini-cart__total total">
+                                        <strong>Subtotal:</strong> <span class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">$</span>28.99</bdi></span>
+                                    </p>
+                                    <p class="woocommerce-mini-cart__buttons buttons"><a href="https://listeo.pro/cart/"
+                                            class="button wc-forward">View cart</a><a href="https://listeo.pro/checkout/"
+                                            class="button checkout wc-forward">Checkout</a></p>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="user-menu">
+                            <div class="user-name">
+                                <span>
+                                    <img alt="" src="{{ user.imageURL }}" class="avatar avatar-32 photo" height="32" width="32" loading="lazy" decoding="async">
+                                </span>
+                                My Account
+                            </div>
+                            
+                            <ul>
+                                <li><a href="{% url 'logout' %}"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+                                <li><a href="{% url 'articles' %}?filter=my"><i class="sl sl-icon-layers"></i> My Articles</a></li>
+                                <li><a href="{% url 'logout' %}"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag blue">0</span></a></li>
+                                <li><a href="{% url 'logout' %}"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>
+                                <li><a href="{% url 'profile' %}"><i class="sl sl-icon-user"></i> My Profile</a></li>
+                                <li> <a onclick="LoginHandler()" ><i class="sl sl-icon-power"></i> Logout</a></li>
+                            </ul>
+                        </div>
+
+                        <script>
+                            const LoginHandler = () => {
+                                if(confirm('Do you want Log out?')){
+                                    window.location.href = "{% url 'logout' %}"
+                                }
+                            }
+                        </script>
+
+                    {% else %}
+                    
+                        <a href="{% url 'login' %}" class="sign-in"><i class="sl sl-icon-login"></i> Sign </a>
+
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+

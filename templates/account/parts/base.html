@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-US">
+
+<head>
+
+    {% include 'layouts/head.html' %}
+    <style>
+        .django-ckeditor-widget {
+            width: 100%;
+        }
+    
+        .tip {
+            background-color: #007bff;
+        }
+    
+        .upload-files {
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: rgb(235, 235, 235);
+            transition: all .2s ease;
+    
+        }
+    
+        .upload-files:hover {
+            background-color: #007bff;
+            color: aliceblue;
+        }
+    
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 0.5;
+        }
+    
+        /* .button:hover,
+        .button:active {
+            background-color: #f92442!important;
+        } */
+
+        .error-message, .error-message a{
+            background-color: #ffdede!important;
+            color: #f92442!important;
+        }
+        .warning-message, .warning-message a{
+            background-color: #fff1dd!important;
+            color: #fd7600!important;
+        }
+        .success-message, .success-message a{
+            background-color: #d1ffd9!important;
+            color: #15a757!important;
+        }
+
+    </style>
+    <title>SCIENCE-UTAS &#8211; 
+        {% block title %}{%endblock%}
+    </title>
+</head>
+
+<body
+    class="page-template-default page page-id-9536 theme-listeo woocommerce-no-js group-blog user_not_logged_in solid-header listeo-childtheme elementor-default elementor-kit-10562 elementor-page elementor-page-9536 dokan-theme-listeo">
+
+    <div class="clearfix"></div>
+
+    {% include "layouts/header_for_mobile.html" %}
+
+    <div id="wrapper">
+
+        <header id="header-container" class="fixed fullwidth dashboard">
+            {% include "layouts/header.html" %}
+        </header>
+
+        <div class="clearfix"></div>
+
+
+        <div id="dashboard" style="padding-top: 80px;">
+
+
+            <a href="#" class="dashboard-responsive-nav-trigger"><i class="fa fa-reorder"></i> Dashboard Navigation</a>
+            
+            {% include 'account/layouts/sidebar.html' %}
+
+            <div class="dashboard-content">
+
+                {% block content %}
+                {% endblock %}
+
+                {% include 'account/layouts/footer.html' %}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="margin-top-55"></div>
+    
+    <div id="backtotop"><a href="#"></a></div>
+    
+    {% include 'layouts/foot.html' %}
+
+</body>
+
+</html>

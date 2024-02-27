@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+{{ object.title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container rental">
+
+    <div class="row">
+        <div id="listing-gallery" class="col-md-12 listeo-grid-gallery-title">
+            <div id="titlebar" class="listing-titlebar ">
+                
+                <div class="listing-titlebar-title">
+                    
+                    <h1>{{ object.title }}</h1>
+                    <span>
+                        {{ object.about }}
+                    </span><br><br><br>
+
+                    <div class="listing-titlebar-tags">
+                        <span class="listing-pricing-tag" style="background-color: #f6f6f6; color: #888;">
+                            <i class="fa fa-bookmark" style="background-color: #888; color: #f6f6f6;"></i>
+                            Type: DOC
+                        </span>
+                        <!-- <span class="listing-pricing-tag" style="background-color: #fff2c5; color: #ffc600;">
+                            <i class="fa fa-star" style="background-color: #ffc600; color: #fff2c5;"></i>
+                            Rating: 5
+                        </span> -->
+                        <a>
+                            <span class="listing-pricing-tag" style="background-color: #d7eaff; color: #3983d3;">
+                                <i class="fa fa-eye" style="background-color: #3983d3;"></i>
+                                View: 2
+                            </span>
+                        </a>
+                        <a href="{{ object.fileURL }}" download>
+                            <span class="listing-pricing-tag">
+                                <i class="fa fa-download"></i>
+                                Download: 1
+                            </span></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="row sticky-wrapper">
+    
+    
+    
+        <div class="col-lg-8 col-md-8 listeo-single-listing-content  padding-right-30">
+    
+    
+            <div id="listing-nav" class="listing-nav-container">
+                <ul class="listing-nav">
+                    <li><a href="#listing-overview" class="active">{% trans 'Detail' %}</a></li>
+                    <li><a href="#id_article_contact">{% trans 'Contact' %}</a></li>
+                    <li><a href="#social-profiles">{% trans 'Social media' %}</a></li>
+                    <li><a href="#listing-video">{% trans 'Video' %}</a></li>
+                    <!-- <li><a href="#add-review">Add Review</a></li> -->
+                </ul>
+            </div>
+    
+            <div id="listing-overview" class="listing-section">
+    
+                <ul class="listing-details" id="listing-details">
+                    <li class="main-detail-_rooms"> 
+                        <i class="fa fas fa-clock"></i>{% trans 'Created' %}<span>{{ object.created }}</span></li>
+                    <li class="main-detail-_area">
+                        <i class="fa fas fa-user"></i>{% trans 'Author' %}<span>{{ object.author|title }}</span> 
+                    </li>
+                    <li class="main-detail-_bathroom"> 
+                        <i class="fa fas fa-refresh"></i>{% trans 'Updated' %}<span>{{ object.updated }}</span>                        
+                    </li>
+                </ul>
+    
+                <p>{{ object.detail|safe }}</p>
+
+                <div class="clearfix" id="id_article_contact"></div>
+                
+                <h3 class="listing-desc-headline">Contact</h3>
+
+                <div class="listing-links-container">
+                    <ul class="listing-links contact-links">
+                        <li><a href="tel:{{object.phone}}" class="listing-links">
+                            <i class="fa fa-phone"></i> {{object.phone}}
+                        </a>
+                        </li>
+                        <li>
+                            <a href="mailto:{{ object.email }}" class="listing-links">
+                            <i class="fa fa-envelope-o"></i> 
+                            <span class="__cf_email__">{{ object.email }}</span></a>
+                        </li>
+                    </ul>
+
+                    
+                </div>
+                <div class="clearfix" id="social-profiles"></div>
+    
+                <h3 class="listing-desc-headline" >{% trans 'Social Media' %}</h3>
+
+                <ul class="listing-features checkboxes margin-top-0">
+                    <li class="feature-has-icon">
+                        <span class="feature-svg-icon"><i class="fa fa-globe"></i></span>
+                        <a href="{{ object.website }}" target="_blank" >Our web site</a>
+                    </li>
+                    <li class="feature-has-icon">
+                        <span class="feature-svg-icon"><i class="fa fa-facebook"></i></span>
+                        <a href="{{ object.facebook }}" target="_blank" >Facebook</a>
+                    </li>
+                    <li class="feature-has-icon">
+                        <span class="feature-svg-icon"><i class="fa fa-telegram"></i></span>
+                        <a href="{{ object.telegram }}" target="_blank" >Telegram</a>
+                    </li>
+                    <li class="feature-has-icon">
+                        <span class="feature-svg-icon"><i class="fa fa-youtube"></i></span>
+                        <a href="{{ object.youtube }}" target="_blank">YouTube</a>
+                    </li>
+                    <li class="feature-has-icon">
+                        <span class="feature-svg-icon"><i class="fa fa-whatsapp"></i></span>
+                        <a href="{{ object.whatsapp }}" target="_blank">WhatsApp</a>
+                    </li>
+                    <li class="feature-has-icon">
+                        <span class="feature-svg-icon"><i class="fa fa-instagram"></i></span>
+                        <a href="{{ object.instagram }}" target="_blank" >Instagram</a>
+                    </li>
+                </ul>
+
+
+            </div>
+    
+            <div id="listing-video" class="listing-section">
+                <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Video</h3>
+                <div class="responsive-iframe">
+                    <iframe width="760" height="428" src="https://www.youtube.com/embed/PTXyWD_NvdY?si=in0c7PWEGMzkYWWP"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    
+                </div>
+            </div>    
+            <br><br><br>
+            
+            
+           <!-- COMMENTS -->
+    
+        </div>
+        
+        {% include 'article/author.html' %}
+    
+    </div>
+</div><br><br><br>
+
+
+                
+
+
+{% endblock %}

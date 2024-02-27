@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Articles List' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div id="titlebar" class="gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{% trans 'articles' %}</h2>
+                <span>Latest Article</span>
+
+                <nav id="breadcrumbs">
+                    <ul>
+
+                        <li class="home"><span property="itemListElement" typeof="ListItem"><a property="item"
+                                    typeof="WebPage" title="Go to Listeo." href="{% url 'home' %}" class="home"><span
+                                        property="name">Home</span></a>
+                                <meta property="position" content="1">
+                            </span></li>
+                        <li class="post-root post post-post current-item"><span property="itemListElement"
+                                typeof="ListItem"><span property="name"
+                                    class="post-root post post-post current-item">{% trans 'articles' %}</span>
+                                <meta property="url" content="https://listeo.pro/blog/">
+                                <meta property="position" content="2">
+                            </span></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container ">
+
+    <div class="blog-page">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 padding-right-30 col-blog">
+                <div class="row margin-bottom-25">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="layout-switcher">
+                            <a href="#" data-layout="list" class="list"><i class="fa fa-align-justify"></i></a>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-9">
+                        <div class="fullwidth-filters  ajax-search ">
+                
+                            <div class="sort-by">
+                                <div class="sort-by-select">
+                                    <select class="select2-sortby orderby">
+                                        <option selected="selected">
+                                            <a href="{% url 'articles' %}">
+                                            All Checked Articles</a>
+                                        </option>
+                                        <option value="default">
+                                            <a href="{% url 'articles' %}?filter=my">
+                                            My All Articles</a>
+                                        </option>
+                                        <option value="highest-rated">
+                                            <a href="{% url 'articles' %}?filter=mycheck">
+                                            My Checked Articles</a>
+                                        </option>
+                                        <option value="reviewed">
+                                            <a href="{% url 'articles' %}?filter=myreview">
+                                            My Review Articles</a>
+                                        </option>
+                                        <option value="date-asc">
+                                            <a href="{% url 'articles' %}?filter=myignore">
+                                            My Ignore Articles</a>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                
+                        </div>
+                    </div>
+                </div>
+                {% if objects %}
+                
+                    {% for article in objects %}
+                        <div class="blog-post post-953 post type-post status-publish format-standard has-post-thumbnail hentry category-tips">
+                            <div class="post-content">
+
+                                <h4><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h4>
+
+                                <ul class="post-meta">
+                                    <li class="meta-author" itemscope="">By <a
+                                            class="author-link" href="#">
+                                            {{ article.author|title }}
+                                        </a></li>
+                                    <li><a href="{% url 'article_detail' article.id %}">
+                                        <time class="entry-date published">
+                                            {{ article.created }}
+                                        </time>
+                                    <li class="meta-com">
+                                        <a href="#" class="comments-link">With 0 comments</a></li>
+                                </ul>
+
+                                <p> {{ article.about|slice:"150" }} . . . <a href="{% url 'article_detail' article.id %}">Read More</a></p> <br>
+                                    
+
+                                    <!-- <div class="star-rating" data-rating="5">
+                                        <div class="rating-counter">(1 reviews)</div>
+                                    </div> -->
+
+                                    <div class="listing-list-small-badges-container">
+                                    
+                                        <div class="listing-small-badge shop-badge">
+                                            <i class="fa fa-star" style="background-color: #ffc600;"></i> Rating: 5
+                                        </div>
+                                    
+                                        <div class="listing-small-badge instant-badge">
+                                            <i class="fa fa-eye"></i> View: 1
+                                        </div>
+                                    
+                                        {% if article.is_staf %}
+                                        <div class="listing-small-badge pricing-badge">
+                                            <i class="fa fa-check"></i> Checked
+                                        </div>
+                                        {% else %}
+                                        <div class="listing-small-badge shop-badge">
+                                            <i class="fa fa-times" style="background-color: #f92442;"></i> Ignore
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <div style="font-size: 55px; gap: 20px; display: flex; justify-content: center;  margin: 120px 0 150px 0; color: #adadad!important;">
+                        <p style="font-size: 50px;">No items!</p>
+                        <i onclick="location.reload()" style="cursor: pointer;" class="sl sl-icon-reload"></i>
+                    </div>
+                {% endif %}
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="pagination-container margin-bottom-40">
+                            <nav class="pagination">
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sidebar">
+                <div class="sidebar right">
+                    <aside id="secondary" class="widget-area" role="complementary">
+                        <section id="search-2" class="widget  margin-top-40 widget_search">
+                            <div class="search-blog-input">
+                                <form method="get" class="search-form" action="" role="search">
+                                    <div class="input"><input class="search-field" type="text" name="s"
+                                            placeholder="Search by name?" value=""></div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                        </section>
+                        <section id="text-4" class="widget  margin-top-40 widget_text">
+                            <h3 class="widget-title">{% trans 'Want to create an article?' %}</h3>
+                            <div class="textwidget">
+                                <div class="info-box margin-bottom-10">
+                                    <p>
+                                        Agar siz maqolangizni sahifamizda chop etilishini xohlasangiz, pastda turgan tugmachani bosing!</p>
+                                    <p><a class="button fullwidth margin-top-20" href="{% url 'article_create' %}">
+                                        <i class="fa fa-envelope-o"></i> Create Articles</a></p>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="listeo-recent-posts-3" class="widget  margin-top-40 listeo_recent_entries">
+                            <h3 class="widget-title">Popular Articles</h3>
+                            <ul class="widget-tabs">
+                                {% if objects %}
+                                                
+                                    {% for article in popular_articles %}
+                                    <li>
+                                        <div class="widget-content">
+                                            <div class="widget-text" style="width: 100%;">
+                                                <h5>
+                                                    <a href="{% url 'article_detail' article.id %}">
+                                                        {{ article.title|slice:"45" }} . . . Read More
+                                                    </a>
+                                                </h5>
+                                                <span>{{ article.author }}</span>
+                                                <span>{{ article.created }}</span>
+                                                
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+
+                                {% else %}
+                                <div style="font-size: 15px; gap: 10px; display: flex; justify-content: center; color: #adadad!important; padding: 25px 0 15px 0; background: linear-gradient(to bottom,rgba(255,255,255,.98),rgba(255,255,255,.95)); background-color: #66676b; border-top: 2px solid #66676b; border-radius: 3px;">
+                                    <p style="font-size: 20px;">No items!</p>
+                                    <i onclick="location.reload()" style="cursor: pointer;" class="sl sl-icon-reload"></i>
+                                </div>
+                                {% endif %}
+                            </ul>
+                        </section>
+                        <div class="margin-top-40"></div>
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

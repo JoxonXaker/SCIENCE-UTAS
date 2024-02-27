@@ -1,0 +1,74 @@
+{% load static %}
+{% load i18n %}
+
+<div class="col-lg-4 col-md-4  listeo-single-listing-sidebar  sticky">
+    {% if object.status == 'confirmed' %}
+        <div class="verified-badge with-tip"
+            data-tip-content="Bu maqola web sahifamiz adminstratorlari tomonidan tasdiqlangan.">
+            <i class="sl sl-icon-check"></i> Verified the Article
+        </div>
+    {% elif object.status == 'reediting' %} style="background-color: #e9d200;"
+        <div class="verified-badge with-tip" 
+            data-tip-content="Bu maqola web sahifamiz adminstratorlari qayta ko`rib chiqish uchun qaytarildi!">
+            <i class="sl sl-icon-refresh"></i> Revise the Article
+        </div>
+    {% elif object.status == 'canceled' %}
+        <div class="verified-badge with-tip" style="background-color: #dc2d2d;"  
+            data-tip-content="Bu maqola web sahifamiz adminstratorlari tomonidan tasdiqlangan">
+            <i class="sl sl-icon-close"></i> Rejected Article
+        </div>
+    {% else %}
+        <div class="verified-badge with-tip" style="background-color: #2d6adc;"
+            data-tip-content="Bu maqola web sahifamiz adminstratorlari tomonidan kurib chiqilmoqda. ">
+            <i class="sl sl-icon-clock"></i> Article is waiting 
+        </div>
+    {% endif %}
+    <div id="widget_listing_owner-2"
+        class="listing-widget widget listeo_core widget_listing_owner boxed-widget margin-bottom-35">
+        <div class="hosted-by-title">
+            <h4><span>Added By</span> <a href="#">
+                    {{ author.username|title }}</a></h4>
+            <a href="#" class="hosted-by-avatar">
+                <img src="{{ author.imageURL }}" class="avatar avatar-56 photo" width="56" height="56"
+                    alt="Tom Wilson"></a>
+        </div>
+        <div class="hosted-by-bio">
+            <p>{{ author.bio|safe }}</p>
+        </div>
+        <div class="hosted-by-bio">      
+        <!-- <ul class="listing-details-sidebar"> -->
+            <p><i class="sl sl-icon-phone"></i> {{ author.phone_number }} <br>
+            <i class="fa fa-envelope-o"></i> {{ author.email }}</p>
+        <!-- </ul> -->
+        </div>  
+        <ul class="listing-details-sidebar social-profiles">
+            <li><a {% if author.facebook %}href="{{ author.facebook }}" target="_blank"{% else %}href="#"{% endif %}
+                 class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+            <li><a {% if author.youtube %}href="{{ author.youtube }}" target="_blank"{% else %}href="#"{% endif %}
+                 class="youtube-profile"><i class="fa fa-youtube"></i> YouTube</a></li>
+            <li><a {% if author.telegram %}href="{{ author.telegram }}" target="_blank"{% else %}href="#"{% endif %}
+                 style="color: #2d6adc!important;"><i style="color: #2d6adc!important" class="fa fa-telegram"></i> Telegram</a></li>
+            <li><a {% if author.whatsapp %}href="{{ author.whatsapp }}" target="_blank"{% else %}href="#"{% endif %}
+                 class="whatsapp-profile"><i class="fa fa-whatsapp"></i> Whatsapp</a></li>
+            <li><a {% if author.instagram %}href="{{ author.instagram }}" target="_blank"{% else %}href="#"{% endif %}
+                 class="instagram-profile"><i class="fa fa-instagram"></i> Instagram</a></li>                 
+        </ul>
+    </div>
+    <div id="widget_buttons_listings-3" class="listing-widget widget listeo_core widget_buttons">
+        <div class="listing-share margin-top-40 margin-bottom-40 no-border">
+
+            <ul class="share-buttons margin-bottom-0">
+                <li><a target="_blank" class="fb-share" href="https://www.facebook.com/utas.uz/"><i
+                            class="fa fa-facebook"></i> Facebook</a></li>
+
+                <li><a target="_blank" class="twitter-share" href="https://t.me/s/utasuz" title="Twitter"><i
+                            class="fa fa-telegram"></i> Telegram</a></li>
+
+                <li><a target="_blank" class="pinterest-share" href="https://utas.uz/"><i class="fa fa-chrome"></i> Web
+                        Site</a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

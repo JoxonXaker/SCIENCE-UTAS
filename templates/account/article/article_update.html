@@ -1,0 +1,237 @@
+{% extends 'account/parts/base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Update Article' %}
+{% endblock %}
+
+{% block content %}
+
+    <div id="titlebar">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    {% trans 'Update Article' %}
+                </h1>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>{% trans 'Update Article' %}</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="notification notice closeable margin-bottom-35 {% if message.tags %}{{ message.tags }}-message{% endif %}">
+                <p>{{ message }}</p><a class="close"></a>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+    <div class="submit-page type-classifieds">
+        <form action="" method="post" class="listing-manager-form" enctype="multipart/form-data">
+
+            <div class="add-listing-section  row  basic_info dynamic-features">
+
+                <div class="add-listing-headline">
+                    <h3><i class="sl sl-icon-doc"></i> Basic Information</h3>
+                </div>
+                            
+                {% csrf_token %}
+                {{ form.media }}
+                <style>
+                    .django-ckeditor-widget {
+                        width: 100%;
+                    }
+                    .tip{
+                        background-color: #f92442;
+                    }
+                    .upload-files{
+                        padding: 5px 10px;
+                        border-radius: 20px;
+                        background-color: rgb(235, 235, 235);
+                        transition: all .2s ease;
+
+                    }
+                    .upload-files:hover{
+                        background-color: #f92442;
+                        color: aliceblue;
+                    }
+                    input::placeholder, textarea::placeholder {
+                        opacity: 0.5;
+                    }
+                </style>
+            
+            
+            <div class="col-md-12" style="margin-bottom: 20px;">
+                <label for="id_{{form.title.name}}">
+                    {{form.title.label|safe}}
+                    <i class="tip" data-tip-content="{{ form.title.help_text }}"></i>
+                </label>
+                {{form.title}}
+                <span style="color: #f92442; font-size: medium;">{{ form.title.errors }}</span>
+            </div>
+            
+            <div class="col-md-8" style="margin-bottom: 20px;">
+                <label for="id_{{form.about.name}}">
+                    {{form.about.label|safe}}
+                    <i class="tip" data-tip-content="{{ form.about.help_text }}"></i>
+                </label>
+                {{form.about}}
+                <span style="color: #f92442; font-size: medium;">{{ form.about.errors }}</span>
+            </div>
+            
+            <div class="col-md-4" style="margin-bottom: 20px;">
+                <label for="id_{{form.files.name}}">
+                    {{form.files.label|safe}} (word .doc, .docx)
+                    <i class="tip" data-tip-content="Upload your word file for articles"></i>
+                </label>
+            
+                <div class="uploadButton margin-top-0">
+                    {{ form.files }}
+                    <label class="upload-files" for="id_{{form.files.name}}"><i class="fa fa-cloud-upload"></i>  Upload Files</label>
+                    <span class="uploadButton-file-name">No file chosen<br></span>
+                </div>
+                <span style="color: #f92442; font-size: medium;">{{ form.about.errors }}</span>
+            </div>
+
+            <div class="col-md-12" style="margin-bottom: 20px;">
+                <label for="id_{{form.detail.name}}">
+                    {{form.detail.label|safe}}
+                    <i class="tip" data-tip-content="{{ form.detail.help_text }}"></i>
+                </label>
+                {{form.detail}}
+                <span style="color: #f92442; font-size: medium;">{{ form.detail.errors }}</span>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label for="id_{{form.phone.name}}">
+                    {{form.phone.label|safe}}
+                    <i class="tip" data-tip-content="{{ form.phone.help_text }}"></i>
+                </label>
+                {{form.phone}}
+                <span style="color: #f92442; font-size: medium;">{{ form.phone.errors }}</span>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 20px;">
+                <label for="id_{{form.email.name}}">
+                    {{form.email.label|safe}}
+                    <i class="tip" data-tip-content="{{ form.email.help_text }}"></i>
+                </label>
+                {{form.email}}
+                <span style="color: #f92442; font-size: medium;">{{ form.email.errors }}</span>
+            </div>
+
+            </div>   
+
+            <div class="add-listing-section  row  basic_info dynamic-features">
+                <div class="add-listing-headline ">
+                    <h3>
+                        <i class="sl sl-icon-docs"></i> Details
+                    </h3>
+                </div>     
+                                    
+                <div class="col-md-12" style="margin-bottom: 20px;">
+                    <label for="id_{{form.video.name}}">
+                        {{form.video.label|safe}}
+                        <i class="tip" data-tip-content="{{ form.video.help_text }}"></i>
+                    </label>
+                    {{form.video}}
+                    <span style="color: #f92442; font-size: medium;">{{ form.video.errors }}</span>
+                </div>
+
+                <div class="col-md-6" style="margin-bottom: 20px;">
+                    <label for="id_{{form.website.name}}">
+                        {{form.website.label|safe}}
+                        <i class="tip" data-tip-content="{{ form.website.help_text }}"></i>
+                    </label>
+                    {{form.website}}
+                    <span style="color: #f92442; font-size: medium;">{{ form.website.errors }}</span>
+                </div>
+
+                <div class="col-md-6" style="margin-bottom: 20px;">
+                    <label for="id_{{form.telegram.name}}">
+                        {{form.telegram.label|safe}}
+                        <i class="tip" data-tip-content="{{ form.telegram.help_text }}"></i>
+                    </label>
+                    {{form.telegram}}
+                    <span style="color: #f92442; font-size: medium;">{{ form.telegram.errors }}</span>
+                </div>
+
+                <div class="col-md-6" style="margin-bottom: 20px;">
+                    <label for="id_{{form.facebook.name}}">
+                        {{form.facebook.label|safe}}
+                        <i class="tip" data-tip-content="{{ form.facebook.help_text }}"></i>
+                    </label>
+                    {{form.facebook}}
+                    <span style="color: #f92442; font-size: medium;">{{ form.facebook.errors }}</span>
+                </div>
+
+                <div class="col-md-6" style="margin-bottom: 20px;">
+                    <label for="id_{{form.youtube.name}}">
+                        {{form.youtube.label|safe}}
+                        <i class="tip" data-tip-content="{{ form.youtube.help_text }}"></i>
+                    </label>
+                    {{form.youtube}}
+                    <span style="color: #f92442; font-size: medium;">{{ form.youtube.errors }}</span>
+                </div>
+
+                <div class="col-md-6" style="margin-bottom: 20px;">
+                    <label for="id_{{form.instagram.name}}">
+                        {{form.instagram.label|safe}}
+                        <i class="tip" data-tip-content="{{ form.instagram.help_text }}"></i>
+                    </label>
+                    {{form.instagram}}
+                    <span style="color: #f92442; font-size: medium;">{{ form.instagram.errors }}</span>
+                </div>
+                
+                <div class="col-md-6" style="margin-bottom: 20px;">
+                    <label for="id_{{form.whatsapp.name}}">
+                        {{form.whatsapp.label|safe}}
+                        <i class="tip" data-tip-content="{{ form.whatsapp.help_text }}"></i>
+                    </label>
+                    {{form.whatsapp}}
+                    <span style="color: #00a884; font-size: medium;">{{ form.whatsapp.errors }}</span>
+                </div>
+
+
+                
+
+                <!-- <div class="col-md-4 form-field-_email_contact_widget-container"> 
+                    <label class="label-_email_contact_widget" for="_email_contact_widget">
+                        Enable Contact Widget 
+                        <i class="tip" data-tip-content="Enable Contact Widget"> </i>
+                    </label>
+                    <div class="switch_box box_1">
+                        <input type="checkbox" class="input-checkbox switch_1" name="_email_contact_widget"
+                            id="_email_contact_widget" value="on" checked="checked" maxlength="">
+                    </div>
+                </div> -->
+                
+                
+                
+
+            </div> 
+
+            <div class="divider margin-top-40"></div>
+
+            <button type="submit" value="submit" class="button margin-top-20">
+                <i class="fa fa-arrow-circle-right"></i> {% trans 'Update Article' %}
+            </button>
+            <style>
+                .button:hover, .button:active{
+                    background-color: #f92442;
+                }
+                
+            </style>
+
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+<div class="simple-slider-search-form ">
+    <div class="container main-search-inner">
+
+        <div class="simple-slider-form-tabs">
+            <div class="simple-slider-form-inner">
+                <div class="filter-tabs">
+
+                    <a href="#" class="filter-tab active">All</a>
+                    <a href="#statisticPage" id="filter-tab-event" class="filter-tab">Statistika</a>
+                    <a href="#journalsPage" id="filter-tab-service" class="filter-tab">Journals</a>
+                    <a href="#commentPage" id="filter-tab-rental" class="filter-tab">Comments</a>
+                    <a href="#aboutPage" id="filter-tab-event" class="filter-tab">About Us</a>                    
+                    <a href="#footerPage" id="filter-tab-last" class="filter-tab">Navigator</a>
+
+                    <style>.filter-tab{color: rgba(255, 255, 255, 0.5);}</style>
+                </div>
+            </div>
+        </div>
+
+        <form action="https://listeo.pro/listings/" id="listeo_core-search-form"
+            class="listeo-form-search_on_home_page dynamic   main-search-form ajax-search" method="GET">
+            <div class="main-search-input">
+                <div class="main-search-input-item text">
+                    <div class=" ">
+                        <input autocomplete="off" name="keyword_search" id="keyword_search" class="keyword_search"
+                            type="text" placeholder="What are you looking for?" value="">
+                    </div>
+                </div>
+                <!-- <div class="main-search-input-item location">
+                    <div class=" ">
+                        <div id="autocomplete-container">
+                            <input autocomplete="off" name="location_search" id="location_search" type="text"
+                                placeholder="Location" value="">
+                        </div>
+                        <a href="#"><i title="Find My Location" class="tooltip left fa fa-map-marker"></i></a>
+                        <span class="type-and-hit-enter">type and hit
+                            enter</span>
+                    </div>
+                </div> -->
+                <div class="main-search-input-item select-taxonomy">
+                    <div class="  " id="listeo-search-form_tax-listing_category">
+                        <select id="tax-listing_category" name="tax-listing_category" class="select2-single"
+                            data-placeholder="All Categories">
+                            <option value="all">All Categories</option>
+                            <option value="journals">Journals</option>
+                            <option value="articles">Articles</option>
+                            <option value="my_articles">My Articles</option>
+                            <option value="articles">My Checked Articles</option>
+                            <option value="articles">My Update Articles</option>
+                            <option value="articles">My Ignore Articles</option>
+                            <option value="comments">Comments</option>
+
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" name="action" value="listeo_get_listings">
+
+                <button class="button">Search</button>
+            </div>
+        </form>
+    </div>
+</div>

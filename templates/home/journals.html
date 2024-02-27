@@ -1,0 +1,75 @@
+{% load static %}
+<section id="journalsPage"
+    class="elementor-section elementor-top-section elementor-element elementor-element-6cbef952 elementor-section-stretched gray-listing-bars elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+    data-id="6cbef952" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-row">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2b9bc91f"
+                data-id="2b9bc91f" data-element_type="column">
+                <div class="elementor-column-wrap elementor-element-populated">
+                    <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-43aea0b8 elementor-widget elementor-widget-listeo-headline"
+                            data-id="43aea0b8" data-element_type="widget" data-widget_type="listeo-headline.default">
+                            <div class="elementor-widget-container">
+                                <h3 style="text-align:center;"
+                                    class="headline  headline-aligned-to-center headline-extra-spacing headline-box  headline-with-subtitle ">
+                                    Jurnallar Ro`yxati <span> 
+                                    Muassasa tomonidan chop etilgan    
+                                    </span></h3>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-36ba9e9 elementor-widget elementor-widget-listeo-listings-carousel"
+                            data-id="36ba9e9" data-element_type="widget"
+                            data-widget_type="listeo-listings-carousel.default">
+                            <div class="elementor-widget-container">
+
+                                <div class="simple-slick-carousel dots-nav">
+                                    {% if objects %}
+                                        {% for object in objects %}
+                                        <div class="fw-carousel-item">
+
+                                            <a href="{% url 'journals_detail' object.slug %}" class="listing-item-container listing-geo-data">
+                                                <div class="listing-item ">
+                                                    <div class="listing-small-badges-container">
+                                                        <div class="listing-small-badge pricing-badge">
+                                                            <i class="fa fa-download"></i>Download
+                                                        </div>
+                                                        
+                                                        <div class="listing-small-badge shop-badge">
+                                                            <i class="fa fa-eye"></i>
+                                                            View
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing-item-content">
+                                                        <span class="tag">Type: PDF</span>
+                                                    </div>
+                                                    <img width="520" height="397" src="{{ object.imageURL }}"
+                                                        class="attachment-listeo-listing-grid size-listeo-listing-grid wp-post-image">
+                                                    {% if object.is_deadline %}
+                                                        <div class="listing-badge now-open">New</div>
+                                                    {% endif %}
+                                                    <span class="save like-icon tooltip left"
+                                                        title="Login To Bookmark Items"></span>
+                                                </div>
+                                                <div class="star-rating">
+                                                    
+                                                    <div class="rating-counter">
+                                                    {{ object.title }}
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p style="text-align: center;">Hozirda journallar yo`q</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

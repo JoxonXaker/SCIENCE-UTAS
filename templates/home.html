@@ -1,0 +1,37 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+{% trans 'Home page' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container full-width">
+	<div class="row">
+		<article id="post-9536"
+			class="col-md-12 page-container-col post-9536 page type-page status-publish hentry">
+			<div data-elementor-type="wp-page" data-elementor-id="9536" class="elementor elementor-9536">
+				<div class="elementor-inner">
+					<div class="elementor-section-wrap">
+
+						{% include 'home/background.html' %}
+
+						{% include 'home/parts/statistic.html'  %}
+
+
+						{% include 'home/journals.html' %}
+
+						{% include 'home/about.html' %}
+						
+						{% include 'home/comments.html' %}
+
+					</div>
+				</div>
+		</article>
+	</div>
+
+</div>
+{% endblock %}

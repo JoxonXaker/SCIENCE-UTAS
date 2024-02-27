@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-US">
+<head>
+    
+    {% include 'layouts/head.html' %}
+    <title>SCIENCE-UTAS &#8211; {% block title %}{% endblock title %}</title>
+</head>
+
+<body class="page-template-default page page-id-9536 theme-listeo woocommerce-no-js group-blog user_not_logged_in solid-header listeo-childtheme elementor-default elementor-kit-10562 elementor-page elementor-page-9536 dokan-theme-listeo">
+
+    {% include "registration/main.html" %}
+
+    <div class="clearfix"></div>
+
+
+    {% include "layouts/header_for_mobile.html" %}
+
+
+    <div id="wrapper">
+
+        <header id="header-container" class="sticky-header ">
+            {% include "layouts/header.html" %}
+        </header>
+
+        
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+    
+    <div class="clearfix"></div>
+    <div class="margin-top-55"></div>
+    
+    {% include 'layouts/footer.html' %}
+    
+    <div id="backtotop"><a href="#" style="background-color: #007bff;"></a></div>
+    
+    {% include 'layouts/foot.html' %}
+    </body>
+    
+    </html>

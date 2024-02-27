@@ -1,0 +1,119 @@
+{% load static %}
+{% load i18n %}
+
+<div class="col-lg-4 col-md-4  listeo-single-listing-sidebar sticky">
+
+
+
+    <h3 class="widget-title margin-bottom-35">My Universitet</h3>
+    <div id="dokan-seller-listing-wrap" class="grid-view listeo-dokan-widget">
+        <div class="seller-listing-content">
+            <ul class="dokan-seller-wrap">
+                <li class="dokan-single-seller woocommerce coloum-1 ">
+                    <a href="{% url 'contact' %}">
+                        <div class="store-wrapper">
+                            <div class="store-header">
+                                <div class="store-banner">
+                                    <img src="{% static 'web/screen.png' %}">
+                                </div>
+                            </div>
+                            <div class="store-content ">
+                                <div class="store-data-container">
+                                    <div class="featured-favourite">
+                                    </div>
+                                    <div class="store-data ">
+                                        <h2>{% trans 'Location' %}</h2>
+                                        <p class="store-address">Fergana St, Yashnabad Dist, Tashkent</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="store-footer">
+                                <div style="font-weight: 600;">
+                                    <i class="fa fa-graduation-cap"></i>&nbsp;
+                                    Toshkent Amaliy Fanlar Universiteti
+                                </div>
+                                <div class="seller-avatar">
+                                    <img src="{% static 'web/log.jpg' %}" alt="logo"
+                                        size="150">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="widget_opening_hours-2"
+        class="listing-widget widget listeo_core boxed-widget opening-hours margin-bottom-35">
+        <h3 class="widget-title margin-bottom-35"><i class="sl sl-icon-clock"></i>
+            {% trans 'Working day' %}
+        </h3>
+        <ul>
+            <li class="listeo-opening-day-monday">Monday<span>
+                    09:00 -
+                    18:00 <br> </span></li>
+            <li class="listeo-opening-day-tuesday">Tuesday<span>
+                    09:00 -
+                    18:00 <br> </span></li>
+            <li class="listeo-opening-day-wednesday">Wednesday<span>
+                    09:00 -
+                    18:00 <br> </span></li>
+            <li class="listeo-opening-day-thursday">Thursday<span>
+                    09:00 -
+                    18:00 <br> </span></li>
+            <li class="listeo-opening-day-friday">Friday<span>
+                    09:00 -
+                    18:00 <br> </span></li>
+            <li class="listeo-opening-day-saturday">Saturday<span>
+                    09:00 -
+                    18:00 <br> </span></li>                    
+            <li>Sunday<span>Closed</span>
+            </li>
+        </ul>
+    </div>
+    <div id="widget_listing_owner-2"
+        class="listing-widget widget listeo_core widget_listing_owner boxed-widget margin-bottom-35">
+        <div class="hosted-by-title">
+            <h4><span>Added by <a href="#">{{ object.created_by|title }}</a></span>
+                <a href="#">{{ object.created_by.first_name }} {{ object.created_by.last_name }}</a></h4>
+            <a href="#" class="hosted-by-avatar">
+                <img alt="" src="{{ object.created_by.imageURL }}"
+                    srcset="{{ object.created_by.imageURL }} 2x"
+                    class="avatar avatar-56 photo" height="56" width="56" loading="lazy" decoding="async"></a>
+        </div>
+        <div class="hosted-by-bio">
+            <p>{{ object.created_by.bio|safe }}</p>
+        </div>
+        <ul class="listing-details-sidebar">
+            <li><i class="sl sl-icon-phone"></i> 
+                <a href="tel:{{ object.created_by.phone_number }}">
+                {{ object.created_by.phone_number }}</li>
+                </a>
+            <li><i class="fa fa-envelope-o"></i>
+                <a href="mailto:{{ object.created_by.email }}">{{ object.created_by.email }}</a>
+            </li>
+        </ul>
+        <ul class="listing-details-sidebar social-profiles">
+
+        </ul>
+    </div>
+
+    <div id="widget_buttons_listings-3" class="listing-widget widget listeo_core widget_buttons">
+        <div class="listing-share margin-top-40 margin-bottom-40 no-border">
+    
+            <ul class="share-buttons margin-bottom-0">
+                <li><a target="_blank" class="fb-share" href="https://www.facebook.com/utas.uz/"><i
+                            class="fa fa-facebook"></i> Facebook</a></li>
+    
+                <li><a target="_blank" class="twitter-share" href="https://t.me/s/utasuz" title="Twitter"><i
+                            class="fa fa-telegram"></i> Telegram</a></li>
+    
+                <li><a target="_blank" class="pinterest-share" href="https://utas.uz/"><i class="fa fa-chrome"></i> Web
+                        Site</a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

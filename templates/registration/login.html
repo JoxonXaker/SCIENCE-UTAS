@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+
+<div id="sign-in-dialog" class="zoom-anim-dialog">
+
+    <div class="sign-in-form style-1">
+        <ul class="tabs-nav">
+            <li class="active"><a href="{% url 'login' %}">Log In</a></li>
+            <li><a href="{% url 'signup' %}">Register</a></li>
+        </ul>
+        <div class="tabs-container alt">
+
+            <div class="tab-content">
+                <form method="post" class="login" action="{% url 'login' %}">
+
+                    {% if form.errors %}
+                        <div class="notification error closeable">
+                            {{ form.errors }}
+                        </div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <p class="form-row form-row-wide">
+                        <label for="id_username">
+                            <i class="sl sl-icon-user"></i>
+                            <input placeholder="{{ form.username.label }}" type="text" class="input-text" 
+                            name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username"
+                            >
+                        </label>
+                    </p>
+                    <p class="form-row form-row-wide">
+                        <label for="id_password">
+                            <i class="sl sl-icon-lock"></i>
+                            <input placeholder="{{ form.password.label }}" class="input-text" type="password" 
+                            name="password" autocomplete="current-password" required id="id_password"
+                            >
+                        </label>
+                        <span class="lost_password">
+                            <a href="{% url 'signup' %}">Lost Your
+                                Password?</a>
+                        </span>
+                    </p>
+                    <div class="form-row">
+                        <input type="submit" class="button border margin-top-5" value="Login">
+                        <div class="checkboxes margin-top-10">
+                            <input name="rememberme" type="checkbox" id="remember_me" value="forever">
+                            <label for="remember_me">Remember Me</label>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans 'Journals' %}{% endblock %}
+
+{% block content %}
+
+<div class="gradient" style="margin-top: 15px; margin-bottom: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Journals</h1>
+                <span>List Journals</span>
+                <nav id="breadcrumbs">
+                    <ul>
+                        <li class="home"><span property="itemListElement" typeof="ListItem">
+                            <a property="item" typeof="WebPage" title="Go to Home." href="{% url 'home' %}" class="home">
+                                <span property="name">{% trans 'Home' %}</span></a>
+                                <meta property="position" content="1">
+                            </span></li>
+                        <li class="post post-page current-item"><span property="itemListElement" typeof="ListItem"><span
+                                    property="name" class="post post-page current-item">Journals</span>
+                                <meta property="url" content="https://listeo.pro/list-with-sidebar/">
+                                <meta property="position" content="2">
+                            </span></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container right-sidebar">
+    <div class="row">
+
+        <!-- JOURNALS -->
+        <article class="col-blog col-lg-9 col-md-8 padding-right-30 page-container-col post-25 page type-page status-publish hentry">
+
+            <div id="listeo-listings-container" data-counter="10" data-style="list" data-custom_class=""
+                data-per_page="5" data-grid_columns="2" data-region="" data-_listing_type="" data-category=""
+                data-feature="" data-rental-category="" data-service-category="" data-event-category=""
+                class="row  ajax-search">
+                <div class="loader-ajax-container">
+                    <div class="loader-ajax"></div>
+                </div>
+                {% if objects %}
+                    {% for object in objects %}
+                        <div class="col-lg-12 col-md-12">
+                            <div class="listing-item-container listing-geo-data list-layout listing-type-service">
+                                <a href="{% url 'journals_detail' object.slug %}" class="listing-item" style="box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;">
+                                    <div class="listing-small-badges-container">
+                                    </div>
+
+                                    <div class="listing-item-image">
+                                        <img width="520" height="397"
+                                            src="{{ object.imageURL }}"
+                                            class="attachment-listeo-listing-grid size-listeo-listing-grid wp-post-image" alt=""
+                                            decoding="async" loading="lazy">
+                                        <span class="tag">
+                                            PDF 
+                                        </span>
+                                    </div>
+
+                                    <div class="listing-item-content">
+                                        {% if object.is_deadline %}
+                                            <div class="listing-badge now-open">{% trans 'New' %}</div>
+                                        {% endif %}
+                                        <div class="listing-item-inner">
+                                            <h3>
+                                                {{ object.title }} <i class="verified-icon"></i>
+                                            </h3>
+                                            <span>{{ object.valume }}</span>
+                                            <div class="listing-list-small-badges-container">
+
+                                                {% if object.is_deadline %}
+                                                <div class="listing-small-badge shop-badge" >
+                                                    <i class="fa fa-star" style="background-color: #ffc600;"></i> Deadline: {{ object.deadline }}
+                                                </div>
+                                                {% endif %}
+                                                <div class="listing-small-badge pricing-badge">
+                                                    <i class="fa fa-download"></i> Download: 1
+                                                </div>
+                                                
+                                                <div class="listing-small-badge instant-badge">
+                                                    <i class="fa fa-eye"></i> View: 1
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <span class="save like-icon tooltip left" title="Login To Bookmark Items"></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div style="font-size: 55px; gap: 20px; display: flex; justify-content: center;  margin: 130px 0 170px 0; color: #adadad!important;">
+                        <p style="font-size: 50px;">No items!</p>
+                        <i onclick="location.reload()" style="cursor: pointer;" class="sl sl-icon-reload"></i>
+                    </div>
+                {% endif %}
+            </div>
+
+
+            <div class="pagination-container margin-top-20 margin-bottom-20 ajax-search">
+                <nav class="pagination margin-top-30">
+                    <ul class="pagination">
+                        <!-- <li class="current" data-paged="1"><a href="#">1 </a></li>
+                        <li data-paged="2"><a href="#">2</a></li> -->
+                    </ul>
+                </nav>
+            </div>
+
+
+        </article>
+
+
+        <!-- FILTERS -->
+        <div class="col-lg-3 col-md-4">
+            <div class="sidebar left">
+                <aside id="secondary" class="widget-area" role="complementary">
+                    <div id="widget_search_form_listings-2" class="listing-widget widget listeo_core widget_buttons">
+                        <form action="" class="listeo-form-sidebar_search dynamic on" method="GET" id="journal_search">
+
+                            <div class="row with-forms">
+                                <div class="search-input-icon col-md-12 ">
+                                    <input autocomplete="off" name="keyword_search" id="keyword_search"
+                                        class="keyword_search" type="text" placeholder="Search by name?"
+                                        value="">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </div>
+
+                            <div class="row with-forms">
+                                <div class="search-input-icon col-md-12 ">
+                                    <input readonly="readonly" autocomplete="off" name="date_search" id="date_range"
+                                        class="date_range" type="text" placeholder="Check-In - Check-Out" value="">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+
+                            <div class="row with-forms" id="listeo-search-form_tax-listing_category">
+                                <div class="col-md-12  " id="listeo-search-form_tax-listing_category">
+                                    <select id="tax-listing_category" name="category_search" class="select2-single"
+                                        data-placeholder="All Categories">
+                                        <option value="0" selected>All Categories</option>
+                                        <option value="new">New</option>
+                                        <option value="popular">Popular</option>
+                                        <option value="arxiv">Old journals</option>
+                                        <option value="arxiv">Arxiv</option>                                
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="button fullwidth">Search</button>
+                        </form>
+
+                    </div>
+
+                    <section id="text-4" class="widget  margin-top-40 widget_text">
+                        <h3 class="widget-title">{% trans 'Want to create an article?' %}</h3>
+                        <div class="textwidget">
+                            <div class="info-box margin-bottom-10">
+                                <p>
+                                    Agar siz maqolangizni sahifamizda chop etilishini xohlasangiz, pastda turgan tugmachani bosing!</p>
+                                <p><a class="button fullwidth margin-top-20" href="{% url 'coming_soon' %}">
+                                        <i class="fa fa-envelope-o"></i> Create Articles</a></p>
+                            </div>
+                        </div>
+                    </section> 
+
+                    <section id="listeo-recent-posts-3" class="widget  margin-top-40 listeo_recent_entries">
+                        <h3 class="widget-title">Popular Journals</h3>
+                        <ul class="widget-tabs">
+                            {% if popular_journals %}
+                                {% for item in popular_journals %}
+                                    <li class="widget-content-li">
+                                        <div class="widget-content">
+                                            <div class="widget-thumb">
+                                                <a href="{% url 'journals_detail' item.slug %}">
+                                                    <img src="{{item.imageURL}}" alt="Image not found" class="widget-avatar">
+                                                </a>
+                                            </div>
+                                            <div class="widget-text" style="width: 100%;">
+                                                <a href="{% url 'journals_detail' item.slug %}">
+                                                <h5>{{ item.title|slice:'20' }}. . . Read More</h5>
+                                                <span><i class="fa fa-eye"></i>&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <i class="fa fa-download"></i>&nbsp;&nbsp;&nbsp;1</span>
+                                                
+                                                </a>
+                                                        
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+
+                            {% else %}
+                            <div
+                                style="font-size: 15px; gap: 10px; display: flex; justify-content: center; color: #adadad!important; padding: 25px 0 15px 0; background: linear-gradient(to bottom,rgba(255,255,255,.98),rgba(255,255,255,.95)); background-color: #66676b; border-top: 2px solid #66676b; border-radius: 3px;">
+                                <p style="font-size: 20px;">No items!</p>
+                                <i onclick="location.reload()" style="cursor: pointer;" class="sl sl-icon-reload"></i>
+                            </div>
+                            {% endif %}
+                             <style>
+                                .widget-content{
+                                    padding: 5px;
+                                }
+                                .widget-avatar{
+                                    width: 85px!important;
+                                    height: 85px!important;
+                                    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px!important;
+                                    border-radius: 5px!important;
+                                    background-color: #fff;
+                                }
+                             </style>   
+                        </ul>   
+                    </section>
+
+                    <div class="margin-top-40"></div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

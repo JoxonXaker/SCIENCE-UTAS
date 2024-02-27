@@ -1,0 +1,71 @@
+{% load static %}
+{% load i18n %}
+
+{% url 'article_create' as article_create %}
+{% url 'profile' as profile %}
+{% url 'password_change' as password_change %}
+
+
+<div class="dashboard-nav">
+    <div class="dashboard-nav-inner" style="max-height: auto;">
+        <ul data-submenu-title="Main">
+
+            <li><a href=""><i class="sl sl-icon-envelope-open"></i> Messages </a>
+            </li>
+            <li><a><i class="fa fa-calendar-check"></i> Bookings</a>
+                <ul>
+                    <li>
+                        <a href="https://listeo.pro/bookings/?status=waiting">Pending 
+                            <span class="nav-tag blue">0</span> </a>
+                    </li>
+                    <li>
+                        <a href="https://listeo.pro/bookings/?status=approved">Approved 
+                            <span class="nav-tag green">0</span> </a>
+                    </li>
+                    <li>
+                        <a href="https://listeo.pro/bookings/?status=cancelled">Cancelled 
+                            <span class="nav-tag red">0</span> </a>
+                    </li>
+                </ul>
+            </li>
+            
+        </ul>
+        <ul data-submenu-title="Listings">
+            <li class="{% if request.path == article_create %}active{% endif %}">
+                <a href="{% url 'coming_soon' %}"><i class="sl sl-icon-plus"></i> {% trans 'Create Article' %}</a>
+            </li>
+            <li class="">
+                <a><i class="sl sl-icon-layers"></i> {% trans 'My Articles' %} </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'articles_profile' %}"> {% trans 'My all Articles' %} 
+                            <span class="nav-tag blue">5</span> </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'articles_profile' %}?filter=check"> {% trans 'Checked Articles' %} 
+                            <span class="nav-tag green">1</span> </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'articles_profile' %}?filter=review"> {% trans 'Review Articles' %}  
+                            <span class="nav-tag yellow">0</span> </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'articles_profile' %}?filter=ignore"> {% trans 'Ignore Articles' %} 
+                            <span class="nav-tag red">4</span> </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <ul data-submenu-title="Account">
+            <li class="{% if request.path == profile %}active{% endif %}">
+                <a href="{{ profile }}"><i class="sl sl-icon-user"></i> My Profile</a>
+            </li>
+            <li class="{% if request.path == password_change %}active{% endif %}">
+                <a href="{{ password_change }}"><i class="sl sl-icon-lock"></i> Change Password</a>
+            </li>
+            <li><a onclick="LoginHandler()"><i class="sl sl-icon-power"></i> Logout</a></li>
+        </ul>
+    </div>
+</div>

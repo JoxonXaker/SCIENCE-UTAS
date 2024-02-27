@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Coming soon' %}
+{% endblock %}
+
+{% block content %}
+
+<div id="wrapper">
+
+    <div class="coming-soon-page">
+        <style>
+            .coming-soon-page{
+                background-image: url("{% static 'web/wp-content/uploads/2018/11/main-search-background-01.jpg' %}");
+                min-height: 90vh;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .coming-soon-page .container{
+                transform: translateY(0)!important;
+            }
+        </style>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2" style="color: #eee;">
+                    {% if objects %}
+                        {% for object in objects %}
+                            <h1 style="color: #fff;">
+                                {{ object.title }}
+                            </h1>
+                            <h2 style="font-size: xx-large; margin-bottom: 20px;">
+                                <i class="fa fa-calendar"></i>
+                                {{ object.valume }}
+                            </h2>
+                            <div>{{ object.detail|safe }}</div>
+                            <div id="countdown" data-count="{{ object.formatted_date|safe }}" class="countdown margin-top-10 margin-bottom-35">
+                                <div><span>%d</span><i>Days</i></div>
+                                <div><span>%h</span><i>Hours</i></div>
+                                <div><span>%m</span><i>Minutes</i></div>
+                                <div><span>%s</span><i>Seconds</i></div>
+                            </div><br>
+                            <a class="button" href="{% url 'article_create' %}?journal={{ object.id }}">
+                                <i class="sl sl-icon-plus"></i>
+                                {% trans 'Create Article' %}
+                            </a>
+                            <a class="button template-button" href="#">
+                                <i class="sl sl-icon-cloud-download"></i>
+                                {% trans 'Template download' %}
+                            </a><br><br><br><br><br>
+                        {% endfor %}
+                        <script>
+                                (function () {
+                                    "use strict";
+
+                                    /**
+                                     * Easy selector helper function
+                                     */
+                                    const select = (el, all = false) => {
+                                        el = el.trim()
+                                        if (all) {
+                                            return [...document.querySelectorAll(el)]
+                                        } else {
+                                            return document.querySelector(el)
+                                        }
+                                    }
+
+                                    /**
+                                     * Easy event listener function
+                                     */
+                                    const on = (type, el, listener, all = false) => {
+                                        let selectEl = select(el, all)
+                                        if (selectEl) {
+                                            if (all) {
+                                                selectEl.forEach(e => e.addEventListener(type, listener))
+                                            } else {
+                                                selectEl.addEventListener(type, listener)
+                                            }
+                                        }
+                                    }
+
+                                    /**
+                                     * Easy on scroll event listener 
+                                     */
+                                    const onscroll = (el, listener) => {
+                                        el.addEventListener('scroll', listener)
+                                    }
+
+                                
+
+                                    /**
+                                     * Countdown timer
+                                     */
+                                    let countdown = select('.countdown');
+                                    const output = countdown.innerHTML;
+
+                                    const countDownDate = function () {
+                                        let timeleft = new Date(countdown.getAttribute('data-count')).getTime() - new Date().getTime();
+
+                                        let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+                                        let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                        let minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+                                        let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+                                        countdown.innerHTML = output.replace('%d', days).replace('%h', hours).replace('%m', minutes).replace('%s', seconds);
+
+                                        if(seconds<0){
+                                            location.reload()
+                                        }
+                                    }
+                                    countDownDate();
+                                    setInterval(countDownDate, 1000);
+
+                                })()    
+                        </script>
+                    {% else %} 
+                        <h1 style="color: #eee;">
+                            Qabul to`xtagan 
+                        </h1>
+                        <p>Hozirda maqolalar qabul qilish to`xtatilgan. Tez orada maqolalarni qabul qilishni boshlaymiz!</p>
+                    {% endif %}
+                    <style>
+                        .button{
+                            font-weight: 500!important;
+                        }
+                    </style>
+
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Ro'yxatdan o'tish{% endblock title %}
+
+{% block content %}
+
+<div id="sign-in-dialog" class="zoom-anim-dialog">
+
+    <div class="sign-in-form style-1">
+        <ul class="tabs-nav">
+            <li><a style="border: none!important;" href="{% url 'login' %}">Log In</a></li>
+            <li class="active"><a href="{% url 'signup' %}">Register</a></li>
+        </ul>
+        <div class="tabs-container alt">
+
+            <div class="tab-content">
+                <form enctype="multipart/form-data" class="register" action="{% url 'signup' %}"
+                    method="post">
+                    {% if form.errors %}
+                    <div class="notification error closeable">
+                        {{form.errors}}
+                    </div>
+                    {% endif %}
+                    {% csrf_token %}
+
+                    <p class="form-row form-row-wide">
+                        <label for="{{form.username.id}}">
+                            <i class="sl sl-icon-user"></i>
+                            {{form.username}}
+                            <span>{{form.username.help_text}}</span>
+
+                        </label>
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="{{form.email.id}}">
+                            <i class="sl sl-icon-envelope-open"></i>
+                            {{form.email}}
+                            <span>{{form.email.help_text}}</span>
+
+                        </label>
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="{{form.password1.id}}">
+                            <i class="sl sl-icon-lock"></i>
+                            {{form.password1}}
+                            <span>
+                                <ul>
+                                {% for help in form.password1.help_text %}
+                                    <li>{{ help }}</li>
+                                {% endfor %}</ul>
+                            </span>
+                        </label>
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="{{form.password2.id}}">
+                            <i class="sl sl-icon-lock"></i>
+                            {{form.password2}}
+                            <span id="password-strength">Password Strength</span>
+                        </label>
+                    </p>
+
+
+                    <p class="form-row margin-top-10 checkboxes margin-bottom-10">
+                        <input type="checkbox" id="checkbox" name="checkbox">
+                        <label for="checkbox">I agree to the <a href="#">Terms and Conditions</a></label>
+                    </p>
+                    <input type="hidden" id="register_security" name="register_security" value="a03fca182d"><input
+                        type="hidden" name="_wp_http_referer" value="/home-6/">
+                    <input type="submit" class="button border fw margin-top-10" name="register" value="Register">
+                    <div class="notification error closeable" style="display: none;margin-top: 20px; margin-bottom: 0px;">
+                        <p></p>
+                    </div>
+                </form>
+                <div class="listeo-custom-fields-wrapper">
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
