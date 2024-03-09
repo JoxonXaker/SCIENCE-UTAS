@@ -12,9 +12,6 @@ class AboutModel(models.Model):
 
     def __str__(self) -> str:
         return self.detail
-    
-    
-    
 
 
 # class ContactModel(models.Model):
