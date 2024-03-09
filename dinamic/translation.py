@@ -4,7 +4,7 @@ from dinamic import models
 
 @register(models.AboutModel)
 class ArticleTranslationOptions(TranslationOptions):
-    fields = ('title', 'detail' )
+    fields = ('detail',)
 
 
 # @register(models.ContactModel)

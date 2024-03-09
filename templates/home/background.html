@@ -41,61 +41,14 @@
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <h1 style="color: aliceblue;"> {% trans 'MainPageInfo' %}</h1>
-                                                        <h4 style="color: aliceblue;">{% trans 'JournalInfo' %}</h4> 
-                                                        <a class="button" href="{% url 'journals' %}" style="background-color: #3168c4;" rel="nofollow">
-                                                            {% trans 'Journals' %} 
+                                                        <h1 style="color: aliceblue;">{{ dinamic.title }}</h1>
+                                                        
+                                                        <a class="button" href="{% url 'journals' %}">
+                                                            {{ dinamic.journal }} &nbsp;&nbsp;<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
                                                         </a>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <h5 class="highlighted-categories-headline"   style="color: aliceblue;">{% trans 'Articles' %}</h5>
-                                                                <div class="highlighted-categories row">
-
-                                                                    <a href="{% url 'articles' %}"
-                                                                        class="highlighted-category">
-                                                                        <i>
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window-stack"
-                                                                                viewBox="0 0 16 16">
-                                                                                <path
-                                                                                    d="M4.5 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M6 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
-                                                                                <path
-                                                                                    d="M12 1a2 2 0 0 1 2 2 2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zM2 12V5a2 2 0 0 1 2-2h9a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1m1-4v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8zm12-1V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2z" />
-                                                                            </svg>
-                                                                        </i>
-                                                                        
-                                                                        <h4>{% trans 'Articles' %}</h4>
-                                                                    </a>
-
-                                                                    <a href="{% url 'coming_soon' %}"
-                                                                        class="highlighted-category">
-                                                                        <i>
-                                                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-up"
-                                                                            viewBox="0 0 16 16">
-                                                                            <path fill-rule="evenodd"
-                                                                                d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708z" />
-                                                                            <path
-                                                                                d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
-                                                                        </svg> 
-                                                                        </i>
-                                                                        
-                                                                        <h4>{% trans 'CreateArticles' %}</h4>
-                                                                        
-                                                                    </a>
-
-                                                                    <a href="{% url 'articles' %}?filter=mycheck"
-                                                                        class="highlighted-category">
-                                                                        <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check"
-                                                                            viewBox="0 0 16 16">
-                                                                            <path fill-rule="evenodd"
-                                                                                d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0" />
-                                                                            <path
-                                                                                d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z" />
-                                                                        </svg></i>
-                                                                        <h4>{% trans 'UpdateArticles' %}</h4>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <a class="button" href="{% url 'coming_soon' %}" style="background-color: #38b653;">
+                                                            {{ dinamic.article }} &nbsp;&nbsp;<i class="fa fa-envelope" aria-hidden="true"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

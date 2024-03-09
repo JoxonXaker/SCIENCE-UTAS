@@ -5,11 +5,16 @@ from django.utils.translation import gettext_lazy as _
     
 
 class AboutModel(models.Model):
-    title = models.CharField(_('title'), max_length=150, null='', blank='')
-    detail = RichTextField(_('detail'), null='', blank='')
+    title = models.CharField(_('title'), max_length=50, null='', blank='')
+    description = models.CharField(_('description'), max_length=150, default='definitely change that!')
+    detail = models.TextField(_('detail'), null='', blank='')
+    url = models.URLField(_('url'), null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.title
+        return self.detail
+    
+    
+    
 
 
 # class ContactModel(models.Model):

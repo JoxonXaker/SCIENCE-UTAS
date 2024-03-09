@@ -2,6 +2,7 @@ from django.views import generic
 from journal import models as journal
 from account import models as account
 from article import models as article
+from dinamic.models import AboutModel
 from django import shortcuts
 
 
@@ -18,10 +19,20 @@ class HomePageView(generic.ListView):
     
     def get_context_data(self, **kwargs):
         articles = article.ArticleModel.objects.all()
+        dinamic = AboutModel.objects.all()
+        
+        kwargs['dinamic'] = {
+            'title': dinamic.get_or_create(title='title')[0],
+            'journal': dinamic.get_or_create(title='journal title')[0],
+            'article': dinamic.get_or_create(title='article title')[0],
+            'about': dinamic.get_or_create(title='about')[0],
+        }
+        
         kwargs['statistic'] = {
             'users': account.CustomUser.objects.all().count(),
             'journals': journal.JournalModel.objects.filter(is_staf=True).count(),
             'article': articles.count(),
-            'checked': articles.filter(status='confirmed').count(),
+            'checked': articles.filter(status='confirmed').count(),            
         }
+        
         return super().get_context_data(**kwargs)

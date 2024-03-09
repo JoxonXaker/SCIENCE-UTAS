@@ -1,10 +1,10 @@
 {% load static %}
 {% load i18n %}
-<section
+<section 
     class="elementor-section elementor-top-section elementor-element elementor-element-3d9c108d elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default"
     data-id="3d9c108d" data-element_type="section" id="aboutPage"
     data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-    <div class="elementor-background-overlay"></div>
+    <div class="elementor-background-overlay" style="background-image: url('{{ dinamic.about.url }}');"></div>
     <div class="elementor-container elementor-column-gap-default">
         <div class="elementor-row">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2806138b"
@@ -25,7 +25,7 @@
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
                                                         <h2 class="elementor-heading-title elementor-size-large" style="text-align: center;">
-                                                            About Us
+                                                            {% trans 'About' %}
                                                         </h2>
                                                     </div>
                                                 </div>
@@ -35,15 +35,7 @@
                                                     <div class="elementor-widget-container">
                                                         <p class="elementor-heading-title elementor-size-default" style="text-align: justify;">
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            Toshkent Amaliy Fanlar Universiteti Oʻzbekistonda faoliyat yurituvchi oliy taʼlim muassasasi. Universitet talabalar
-                                                            o'rtasida kasbiy ko'nikmalarni rivojlantirishga qaratilgan asosiy vazifani o'z zimmasiga oladi. Toshkent Amaliy Fanlar
-                                                            universiteti iqtisodiyot, kompyuter injiniringi, pedagogika va psixologiya, shuningdek, chet tillari, oʻzbek tili va
-                                                            adabiyoti kabi yoʻnalishlar boʻyicha yuqori malakali mutaxassislar tayyorlaydi. Universitet xalqaro standartlarga mos
-                                                            ta’limni taklif etadi va uning professor-o‘qituvchilari malakali mutaxassislar tayyorlash, ta’limdan keyingi ta’limni
-                                                            tashkil etish, malaka oshirish, innovatsion va ilmiy texnologiyalarni qo‘llash va mamlakat iqtisodiyotini
-                                                            rivojlantirishga hissa qo‘shishni maqsad qilgan. “Toshkent Amaliy Fanlar University” ijtimoiy tarmoqlarda ham faol va
-                                                            Facebook’da ulashadi. Ushbu tavsiflar Toshkent Amaliy Fanlar Universiteti haqida umumiy ma'lumot beradi. Batafsil
-                                                            ma'lumot yoki manbalarga kirish uchun tegishli veb-saytlarga tashrif buyurishni tavsiya etaman.</p>
+                                                            {{ dinamic.about|safe }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-3c70b05c elementor-widget elementor-widget-button"

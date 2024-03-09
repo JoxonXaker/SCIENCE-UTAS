@@ -10,5 +10,6 @@ from dinamic import models
 @register(models.AboutModel)
 class AboutModelAdmin(TabbedTranslationAdmin):
 #     inlines = [OrganizationTabularInline,]
-    list_display = ('title', 'detail')
+    list_display = ('title', 'description', 'url')
+    list_display_links = ('title', 'description', 'url')
 

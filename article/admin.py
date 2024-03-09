@@ -25,15 +25,15 @@ class ArticleModelAdmin(admin.ModelAdmin):
         return qs.filter(author=request.user)
     
 
-@admin.register(models.DeadlineModel)
-class DeadlineModelAdmin(admin.ModelAdmin):
-    list_display = ('name', 'date')
-    list_display_links = ('name', 'date')
+# @admin.register(models.DeadlineModel)
+# class DeadlineModelAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'date')
+#     list_display_links = ('name', 'date')
 
 
-@admin.register(models.CommentModel)
-class CommentModelAdmin(admin.ModelAdmin):
-    list_display = ('created_at', 'article', 'is_read')
-    list_display_links = ('created_at', 'article', 'is_read')
+# @admin.register(models.CommentModel)
+# class CommentModelAdmin(admin.ModelAdmin):
+#     list_display = ('created_at', 'article', 'is_read')
+#     list_display_links = ('created_at', 'article', 'is_read')
 
 
